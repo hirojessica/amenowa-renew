@@ -1,0 +1,5 @@
+import {readFileSync,existsSync} from 'node:fs';
+import path from 'node:path';
+const root=path.resolve('dist/client');const routes=JSON.parse(readFileSync(path.join(root,'route-manifest.json'),'utf8'));const failures=[];
+for(const route of routes){const file=path.join(root,route,'index.html'),html=readFileSync(file,'utf8');if((html.match(/<h1(?:\s|>)/g)||[]).length!==1)failures.push(`${route}: must contain one H1`);if(!html.includes('noindex,nofollow'))failures.push(`${route}: demo noindex missing`);for(const match of html.matchAll(/(?:href|src)="(\/amenowa-renew\/[^"?#]*)/g)){const relative=decodeURIComponent(match[1].slice('/amenowa-renew/'.length));const target=path.join(root,relative,relative.endsWith('/')||relative===''?'index.html':'');if(!existsSync(target))failures.push(`${route}: missing ${relative}`);}}
+if(failures.length){console.error(failures.join('\n'));process.exit(1);}console.log(`Build validation passed: ${routes.length} pages, internal links, assets, headings, demo indexing.`);

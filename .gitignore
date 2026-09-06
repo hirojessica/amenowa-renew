@@ -1,0 +1,12 @@
+output/
+tmp/
+node_modules/
+dist/
+.vite/
+.env
+.env.*
+!.env.example
+site/src/generated/
+*.log
+Thumbs.db
+.DS_Store
