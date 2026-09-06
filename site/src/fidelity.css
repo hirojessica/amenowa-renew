@@ -12,3 +12,6 @@ h1,h2{font-feature-settings:'palt';}
 @media(min-width:1201px){.site-header .brand-mark{width:62px;height:34px}.site-header .brand-word-image{width:142px}}
 .representative-photo{display:block;width:100%;height:auto}
 @media(max-width:800px){.about-message>.representative-photo{width:75%;margin-inline:auto}}
+.article-content>.prose{margin-top:36px}
+.article-content>.prose p+p{margin-top:1.3em}
+.article-content>.prose img{width:100%;height:auto;margin-bottom:36px}

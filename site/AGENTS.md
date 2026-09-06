@@ -13,6 +13,7 @@
 - All pages are a demo on hirojessica/amenowa-renew, main, GitHub Pages. Do not change amenowa.co.jp.
 - User requested the same favicon as production on 2026-09-06. Keep the original production PNGs in public/assets/ unchanged; index.html declares the 32px, 192px, Apple touch and Windows tile variants. See ../docs/image-assets.md for source URLs.
 - NEWS uses Pages CMS. User confirmed GitHub account availability. Contact recipient is configured separately; demo must not transmit messages.
+- On 2026-09-06, migrate the four published WordPress posts (430, 421, 401, 396) into NEWS, replacing sample articles. Keep titles, original publication dates, categories and body wording. Include their two inline photos and PDF from public/uploads/wordpress; omit placeholder images when the original article has no image. One WordPress draft is excluded. Migration mapping is in ../docs/news-migration.md. This is a snapshot, not automatic WordPress synchronization.
 
 Run the local server yourself and open the preview in the browser available to this environment. Do not give the user server-start instructions when you can run it.
 

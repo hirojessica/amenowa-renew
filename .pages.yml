@@ -1,7 +1,7 @@
 media:
   input: site/public/uploads
   output: /uploads
-  extensions: [jpg, jpeg, png, webp, avif]
+  extensions: [jpg, jpeg, png, webp, avif, pdf]
   rename: safe
 content:
   - name: news
@@ -32,6 +32,11 @@ content:
         label: 公開日
         type: date
         required: true
+      - name: time
+        label: 公開時刻（任意）
+        type: string
+        pattern: '^(?:[01]\d|2[0-3]):[0-5]\d$'
+        description: 同じ公開日の記事を新しい順に並べるための時刻です。例 18:53。空欄は00:00として扱い、時刻での予約公開は行いません。
       - name: category
         label: カテゴリー
         type: select
