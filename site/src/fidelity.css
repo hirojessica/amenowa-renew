@@ -15,3 +15,5 @@ h1,h2{font-feature-settings:'palt';}
 .article-content>.prose{margin-top:36px}
 .article-content>.prose p+p{margin-top:1.3em}
 .article-content>.prose img{width:100%;height:auto;margin-bottom:36px}
+.company-business-list{margin:0;padding-left:1.2em}
+.company-business-list li+li{margin-top:.35em}

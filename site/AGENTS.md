@@ -11,6 +11,7 @@
 - User requested image placeholders for now. This explicitly overrides generic skill rules requiring generated final imagery.
 - On 2026-09-06, user supplied asahi.jpg for ABOUT's representative photo. Use public/images/representative-asahi.jpg unchanged, retaining its square composition and full image on desktop and mobile. Other ABOUT image placeholders remain.
 - On 2026-09-07, user confirmed ABOUT's company address as 山梨県北杜市大泉町西井出8240 and establishment date as 2023年11月23日. Display them as separate 所在地 and 設立日 rows instead of the company-information placeholder.
+- On 2026-09-07, user supplied eight current business activities for ABOUT's company overview, with possible changes later. Preserve their wording and order in companyBusinessActivities in Pages.jsx, including CO2 and サスティナブル. This company list is independent of the four WORKS service pages; do not regenerate it from services.
 - On 2026-09-06, user requested recreating the two images in HOME's hero and water-cycle concept sections. Those two frames now use generated assets based on the selected mock; other image areas remain placeholders.
 - User supplied official transparent logo assets on 2026-09-06: amenowa_2_1.png (602x309 symbol) and amenowa_1.png (1307x278 wordmark). Use these PNGs unchanged for header and footer. The symbol's solid pixel color is #0081a6; --brand, buttons and accents must match this value. This replaces the earlier #0086c1 estimate and cropped wordmark.
 - All pages are a demo on hirojessica/amenowa-renew, main, GitHub Pages. Do not change amenowa.co.jp.
