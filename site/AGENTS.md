@@ -4,6 +4,7 @@
 
 - Use the selected Nature & Science mock at ../output/design-proposals/2026-09-05/01-nature-science.png as the visual reference.
 - Preserve its white editorial layout, Japanese serif headlines, curved hero image boundary and WORKS rows.
+- User requested a slimmer, more balanced header on 2026-09-06. Header height: desktop 84px, tablet 76px, mobile 68px. Header contact button: desktop 180x48px, tablet 164x44px, mobile drawer 52px high. Keep adequate surrounding whitespace and the corporate blue; the earlier tall mock header is superseded by this feedback. Mobile menu positioning must derive from --header-height.
 - User reported a clipped, flat wave tip in the hero on 2026-09-06. Keep the desktop/tablet wave inside the image bounds (leftmost turn at 2%) with continuous tangents; maintain one shared clip-path so breakpoints cannot restore the clipped curve.
 - User requested image placeholders for now. This explicitly overrides generic skill rules requiring generated final imagery.
 - On 2026-09-06, user requested recreating the two images in HOME's hero and water-cycle concept sections. Those two frames now use generated assets based on the selected mock; other image areas remain placeholders.
