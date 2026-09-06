@@ -1,4 +1,6 @@
 .about-team.content-width{max-width:1080px;padding:0 0 95px;margin-bottom:90px;border-bottom:1px solid var(--line);scroll-margin-top:40px}
+/* This non-interactive anchor target keeps focus without a control-style frame. */
+.about-team:focus{outline:none}
 .team-heading{margin-bottom:43px}
 .team-heading h2{font-size:34px;line-height:1.6;margin:22px 0 19px}
 .team-heading p{font-size:14px}
