@@ -12,7 +12,7 @@ export const pageMeta = path => {
  const service=services.find(s=>path===`works/${s.slug}/`);
  const names={'':'水を測る。水を知る。水の未来を、ともにつくる。','about/':'私たちについて','works/':'事業内容','news/':'お知らせ・ブログ','recruit/':'採用情報','contact/':'お問い合わせ','contact/complete/':'お問い合わせ完了','privacy/':'個人情報の取り扱い'};
  const descriptions={
-  'about/':'株式会社amenowaの企業理念、代表メッセージ、会社概要をご紹介します。',
+  'about/':'株式会社amenowaの企業理念、代表メッセージ、チーム・アドバイザー、会社概要をご紹介します。',
   'works/':'水資源の評価・管理、水利用の見える化、森林保全・涵養、情報発信を支援する事業をご紹介します。',
   'news/':'amenowaからのお知らせ、プレスリリース、水の未来を考えるブログをお届けします。',
   'recruit/':'水の未来を、ともにつくる仲間へ。amenowaの採用に関するご案内です。',

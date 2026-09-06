@@ -1,0 +1,37 @@
+.about-team.content-width{max-width:1080px;padding:0 0 95px;margin-bottom:90px;border-bottom:1px solid var(--line);scroll-margin-top:40px}
+.team-heading{margin-bottom:43px}
+.team-heading h2{font-size:34px;line-height:1.6;margin:22px 0 19px}
+.team-heading p{font-size:14px}
+.advisor-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.advisor{min-width:0}
+.advisor-photo{width:100%;height:auto;aspect-ratio:1;display:block}
+.advisor-info{padding-top:24px}
+.advisor-info h3{font-family:var(--serif);font-size:clamp(24px,2.2vw,29px);font-weight:400;letter-spacing:.04em;line-height:1.5;margin:0 0 11px}
+.advisor-info p{font-size:13px;line-height:1.9}
+.advisor-role{color:var(--brand)}
+.advisor-info .advisor-specialty{font-size:12px;margin-top:4px}
+.advisor-info .advisor-details{margin-top:18px}
+.advisor-details span{display:block}
+.home-team{display:flex;align-items:center;justify-content:space-between;gap:40px;margin-top:64px;padding:48px 0 52px;border-block:1px solid var(--line)}
+.home-team h2{font-size:clamp(28px,2.5vw,36px);line-height:1.7;letter-spacing:.015em;margin:18px 0 15px}
+.home-team p{font-size:14px}
+.team-link{flex-shrink:0;color:var(--brand);border-bottom:1px solid var(--brand);gap:28px;white-space:nowrap}
+@media(max-width:1100px) and (min-width:801px){.advisor-grid{gap:28px}.home-team{align-items:flex-start}.home-team .team-link{margin-top:46px}.home-team p{max-width:540px;font-size:13px}.home-team h2{font-size:28px}}
+@media(max-width:800px){
+  .about-team.content-width{padding-bottom:55px;margin-bottom:55px}
+  .team-heading{margin-bottom:32px}
+  .team-heading h2{font-size:28px;margin:18px 0 15px}
+  .team-heading p{font-size:13px}
+  .advisor-grid{grid-template-columns:1fr;gap:32px}
+  .advisor{display:grid;grid-template-columns:clamp(100px,27vw,160px) minmax(0,1fr);gap:22px;align-items:start}
+  .advisor-info{padding-top:0}
+  .advisor-info h3{font-size:23px;margin-bottom:9px}
+  .advisor-info p{font-size:12px}
+  .advisor-info .advisor-specialty{font-size:11px}
+  .advisor-info .advisor-details{margin-top:12px}
+  .home-team{display:block;margin-top:44px;padding:35px 0 40px}
+  .home-team h2{font-size:26px;margin:17px 0 14px}
+  .home-team p{font-size:13px}
+  .home-team .team-link{margin-top:18px;font-size:14px}
+}
+@media(max-width:359px){.advisor{grid-template-columns:88px minmax(0,1fr);gap:18px}.advisor-info h3{font-size:21px}.team-heading h2{font-size:26px}.home-team h2{font-size:24px}}
