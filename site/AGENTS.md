@@ -4,6 +4,7 @@
 
 - Use the selected Nature & Science mock at ../output/design-proposals/2026-09-05/01-nature-science.png as the visual reference.
 - Preserve its white editorial layout, Japanese serif headlines, curved hero image boundary and WORKS rows.
+- User reported a clipped, flat wave tip in the hero on 2026-09-06. Keep the desktop/tablet wave inside the image bounds (leftmost turn at 2%) with continuous tangents; maintain one shared clip-path so breakpoints cannot restore the clipped curve.
 - User requested image placeholders for now. This explicitly overrides generic skill rules requiring generated final imagery.
 - On 2026-09-06, user requested recreating the two images in HOME's hero and water-cycle concept sections. Those two frames now use generated assets based on the selected mock; other image areas remain placeholders.
 - User supplied official transparent logo assets on 2026-09-06: amenowa_2_1.png (602x309 symbol) and amenowa_1.png (1307x278 wordmark). Use these PNGs unchanged for header and footer. The symbol's solid pixel color is #0081a6; --brand, buttons and accents must match this value. This replaces the earlier #0086c1 estimate and cropped wordmark.
