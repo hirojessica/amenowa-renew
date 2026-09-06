@@ -26,6 +26,7 @@ jobs:
         working-directory: site
         env:
           SITE_BASE: /amenowa-renew/
+          SITE_URL: https://hirojessica.github.io/amenowa-renew/
           VITE_CONTACT_MODE: demo
       - uses: actions/upload-pages-artifact@v3
         with:

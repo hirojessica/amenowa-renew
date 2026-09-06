@@ -11,5 +11,15 @@ export const staticRoutes = ['','about/','works/','news/','recruit/','contact/',
 export const pageMeta = path => {
  const service=services.find(s=>path===`works/${s.slug}/`);
  const names={'':'水を測る。水を知る。水の未来を、ともにつくる。','about/':'私たちについて','works/':'事業内容','news/':'お知らせ・ブログ','recruit/':'採用情報','contact/':'お問い合わせ','contact/complete/':'お問い合わせ完了','privacy/':'個人情報の取り扱い'};
- return {title:`${service?.name || names[path] || 'NEWS'} | amenowa`, description:service?.intro || '観測とデータから、持続可能な水利用と水の再生へ。amenowaは、水の未来を地域とともにつくります。'};
+ const descriptions={
+  'about/':'株式会社amenowaの企業理念、代表メッセージ、会社概要をご紹介します。',
+  'works/':'水資源の評価・管理、水利用の見える化、森林保全・涵養、情報発信を支援する事業をご紹介します。',
+  'news/':'amenowaからのお知らせ、プレスリリース、水の未来を考えるブログをお届けします。',
+  'recruit/':'水の未来を、ともにつくる仲間へ。amenowaの採用に関するご案内です。',
+  'contact/':'amenowaの事業や取り組みに関するご相談、協業・研究、取材、採用のお問い合わせ窓口です。',
+  'contact/complete/':'amenowaへのお問い合わせ完了ページです。',
+  'privacy/':'amenowaにおける個人情報の取り扱いについてご案内します。',
+  '404/':'ページが見つかりません。URLをご確認ください。'
+ };
+ return {title:`${service?.name || names[path] || (path==='404/'?'ページが見つかりません':'NEWS')} | amenowa`, description:service?.intro || descriptions[path] || '観測とデータから、持続可能な水利用と水の再生へ。amenowaは、水の未来を地域とともにつくります。'};
 };
