@@ -5,6 +5,7 @@
 - Use the selected Nature & Science mock at ../output/design-proposals/2026-09-05/01-nature-science.png as the visual reference.
 - Preserve its white editorial layout, Japanese serif headlines, curved hero image boundary and WORKS rows.
 - User requested image placeholders for now. This explicitly overrides generic skill rules requiring generated final imagery.
+- On 2026-09-06, user requested recreating the two images in HOME's hero and water-cycle concept sections. Those two frames now use generated assets based on the selected mock; other image areas remain placeholders.
 - Corporate accents and logo mark share the single --brand token, #0086c1, visually sampled from the selected mock's blue mark. The public logo silhouette comes from amenowa.co.jp.
 - All pages are a demo on hirojessica/amenowa-renew, main, GitHub Pages. Do not change amenowa.co.jp.
 - NEWS uses Pages CMS. User confirmed GitHub account availability. Contact recipient is configured separately; demo must not transmit messages.

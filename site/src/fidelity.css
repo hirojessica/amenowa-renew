@@ -5,3 +5,6 @@ h1,h2{font-feature-settings:'palt';}
 @media(min-width:1201px){.navigation{font-size:16px;gap:64px}.hero-copy{transform:translateY(-10px)}.hero-copy h1{font-size:4.12vw;letter-spacing:.025em}.hero-copy p{font-size:1.52vw}.hero-copy .button{padding-left:5.95vw}.home-hero{height:64.65vw}.home-concept{min-height:55.1vw}.concept-copy h2{font-size:4.08vw;line-height:1.52}.home-works{padding-top:4.1vw}.home-works>.eyebrow{margin-bottom:23px}.home-works .work-links a{font-size:21px}.hero-media{clip-path:shape(from 10% 0%,curve to 10% 43% with 1% 16% / 22% 28%,curve to 12% 100% with -8% 64% / -1% 82%,line to 100% 100%,line to 100% 0%,close)}}
 @media(max-width:800px){.contact-aside h2 br{display:initial}.form-actions .button{white-space:nowrap;padding-inline:16px;font-size:13px}.form-actions .button-secondary{flex-basis:96px}.contact-section .form-actions .button:not(.button-secondary){min-width:175px}}
 .brand-word-image{width:153px;height:auto;mix-blend-mode:multiply}@media(max-width:1200px){.brand-word-image{width:132px}}
+.hero-photo{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.concept-art{width:100%;height:40vw;max-height:580px;object-fit:contain;mix-blend-mode:darken;transform:scale(1.06)}
+@media(max-width:800px){.hero-photo{object-position:50% 66%}.concept-art{height:auto;max-height:none;aspect-ratio:4/3}}
