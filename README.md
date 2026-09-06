@@ -47,4 +47,4 @@ npm run build
 | CMS設定 | `.pages.yml` |
 | デモ公開設定 | `.github/workflows/pages.yml` |
 
-現行のロゴ形状はamenowa公式サイトの公開素材を使用しています。書体はNoto Serif JP、Noto Sans JP、Barlow Condensed、アイコンはPhosphor Iconsを使用しています。
+ヘッダーとフッターには支給された正式なロゴ・文字画像を使用し、ボタンなどの青はロゴの `#0081a6` に統一しています。書体はNoto Serif JP、Noto Sans JP、アイコンはPhosphor Iconsを使用しています。

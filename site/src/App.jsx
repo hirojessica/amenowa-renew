@@ -5,7 +5,7 @@ import {BASE, href, services, pageMeta} from './site.js';
 import {About, Works, Service, News, Article, Recruit, Contact, Privacy, Complete, NewsRows} from './Pages.jsx';
 
 export const Arrow=({size=30})=><ArrowRight size={size} weight="thin" aria-hidden="true"/>;
-export function Brand(){return <span className="brand"><span className="brand-mark" style={{maskImage:`url(${href('assets/amenowa-mark.png')})`,WebkitMaskImage:`url(${href('assets/amenowa-mark.png')})`}} aria-hidden="true"/><img className="brand-word-image" src={href('assets/amenowa-wordmark.png')} alt="" width="103" height="21"/></span>;}
+export function Brand(){return <span className="brand"><img className="brand-mark" src={href('assets/amenowa-symbol-official.png')} alt="" width="602" height="309"/><img className="brand-word-image" src={href('assets/amenowa-wordmark-official.png')} alt="" width="1307" height="278"/></span>;}
 export function Button({to,children,secondary=false}){return <a className={`button ${secondary?'button-secondary':''}`} href={href(to)}>{children}<Arrow/></a>;}
 export function Media({name='写真',className='',ratio}){return <div className={`media-placeholder ${className}`} style={ratio?{aspectRatio:ratio}:undefined} role="img" aria-label={`${name}：画像はめ込み予定`}><div className="media-label"><ImageIcon size={32} weight="thin" aria-hidden="true"/><span>画像はめ込み予定</span><small>{name}</small></div></div>;}
 function Header({path}){

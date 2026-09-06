@@ -6,7 +6,7 @@
 
 トップの清流写真と水循環イラストは、2026-09-06の追加指定により採用案を参照した生成画像へ差し替えました（[画像一覧](image-assets.md)）。その他はワイヤーフレームです。画像差し替え後も比率とレイアウトを保てる共通コンポーネント `Media` を使っています。
 
-`--brand: #0086c1` は採用画像の左上の青に合わせた暫定値です。ロゴのマーク・ボタン・リンクのアクセントを同じトークンで統一しています。正式な指定HEX値が提示された場合も1か所で変更できます。ロゴの形状には公式公開素材を使い、文字部分は採用画像からそのまま切り出した素材です。元画像の解像度に限りがあるため、本番では正式なロゴデータへの差し替えを推奨します。
+`--brand: #0081a6` は2026-09-06に支給された正式なロゴ画像の不透明画素（RGB 0, 129, 166）に一致します。ボタン・リンクのアクセントを同じトークンで統一しています。ヘッダーとフッターには、支給されたマーク `amenowa_2_1.png`（602×309）と文字 `amenowa_1.png`（1307×278）を加工せず使用し、透明背景と元の縦横比を維持しています。
 
 ## ページ構成
 
@@ -41,7 +41,7 @@
 
 ## 素材
 
-ロゴ形状の公開元: [amenowa公式ロゴ](https://amenowa.co.jp/wp-content/uploads/2024/09/amenowa_2_1-e1726549949396.png)
+正式ロゴ: ユーザー支給の `amenowa_2_1.png` と `amenowa_1.png`。配信ファイルは `site/public/assets/amenowa-symbol-official.png` と `amenowa-wordmark-official.png` です。
 
 フォント: Noto Serif JP、Noto Sans JP、Barlow Condensed（SIL Open Font License）。Phosphor Icons（MIT）。依存パッケージは `site/package-lock.json` に固定しています。
 
