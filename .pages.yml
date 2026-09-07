@@ -132,10 +132,10 @@ content:
         label: 写真の説明
         type: string
       - name: timeline
-        label: 取り組みの流れ
+        label: 従来の取り組みの流れ・SERVICESへの関連付け
         type: object
         list: true
-        required: true
+        description: 年表を使う場合、事例ページでは年表が優先されます。既存のSERVICES関連付けに使っている項目は残してください。
         fields:
           - name: title
             label: 見出し
@@ -169,3 +169,115 @@ content:
       - name: body
         label: 補足本文（任意）
         type: rich-text
+      - name: projectIntro
+        label: プロジェクトの導入文（任意）
+        type: rich-text
+        description: ヒーローの下、取り組み紹介の前に表示します。
+      - name: storySections
+        label: 取り組みの紹介（任意）
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: 分類ラベル
+            type: string
+            required: true
+          - name: headline
+            label: 見出し
+            type: string
+            required: true
+          - name: body
+            label: 紹介本文
+            type: rich-text
+            required: true
+      - name: chronology
+        label: 写真を追加できる年表（任意）
+        type: object
+        description: 年・時期・取り組みの順で編集します。年表そのものを画像にする必要はありません。
+        fields:
+          - name: title
+            label: 年表の見出し
+            type: string
+            required: true
+          - name: intro
+            label: 年表の紹介文
+            type: text
+          - name: years
+            label: 年
+            type: object
+            list: true
+            required: true
+            fields:
+              - name: year
+                label: 西暦
+                type: number
+                required: true
+                options:
+                  min: 1900
+                  max: 9999
+                description: 2024のように4桁の整数を入力。表示は年の昇順です。
+              - name: phase
+                label: この年のテーマ
+                type: string
+                required: true
+              - name: description
+                label: この年の説明
+                type: text
+              - name: periods
+                label: 時期
+                type: object
+                list: true
+                required: true
+                fields:
+                  - name: label
+                    label: 時期の表示
+                    type: string
+                    required: true
+                    description: 9月、前半〜夏など。時期はこのリストの順に表示します。
+                  - name: events
+                    label: この時期の取り組み
+                    type: object
+                    list: true
+                    required: true
+                    fields:
+                      - name: title
+                        label: 取り組み名
+                        type: string
+                        required: true
+                      - name: category
+                        label: 年表内の分類
+                        type: select
+                        required: true
+                        options:
+                          values:
+                            - name: strategy
+                              label: 01 サステナビリティ戦略・事業設計
+                            - name: research
+                              label: 02 水・自然資本の調査・実装
+                            - name: community
+                              label: 03 地域共創・環境教育
+                            - name: branding
+                              label: 04 サステナブル・ブランディング
+                      - name: next
+                        label: 次につながること
+                        type: text
+                        description: 矢印に続けて表示する説明です。
+                      - name: related
+                        label: 関連する分野（任意）
+                        type: string
+                      - name: image
+                        label: 写真・画面画像
+                        type: image
+                        description: 後から追加できます。空欄は画像枠を表示。登録した画像はクリックで拡大できます。
+                      - name: imageAlt
+                        label: 画像の説明
+                        type: string
+                      - name: caption
+                        label: 画像の下に表示する説明（任意）
+                        type: text
+          - name: outcomeTitle
+            label: 年表の結びの見出し（任意）
+            type: string
+          - name: outcome
+            label: 年表の結びの本文（任意）
+            type: text

@@ -4,6 +4,7 @@ import {parsePost,parseCase,loadCases} from '../scripts/content.mjs';
 import {mkdtempSync,writeFileSync,unlinkSync,rmdirSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
+import matter from 'gray-matter';
 const source=(extra='',body='本文')=>`---\ntitle: Test\nslug: test\ndate: '2026-09-06'\ncategory: お知らせ\npublished: true\n${extra}\n---\n${body}`;
 test('drafts and future articles are excluded',()=>{assert.equal(parsePost(source().replace('published: true','published: false'),'test.md','2026-09-06'),null);assert.equal(parsePost(source(),'test.md','2026-09-05'),null);});
 test('published content has safe HTML and base-prefixed media',()=>{const p=parsePost(source('',`## 見出し\n<script>alert(1)</script>\n<a href="javascript:alert(1)">x</a>\n![alt](/uploads/test.png)`),'test.md','2026-09-06');assert.match(p.html,/<h2>見出し/);assert.doesNotMatch(p.html,/<script|javascript:/);assert.match(p.html,/amenowa-renew\/uploads\/test.png/);});
@@ -55,4 +56,51 @@ test('service association is optional, supports several services, and retains de
  assert.equal(item.timeline[0].serviceDetail,'背景と課題\n具体的な取り組み\n');
  for(const invalid of ['-1','1.5',"'abc'","'20'"])assert.throws(()=>parseCase(caseSource('bad',`order: ${invalid}`),'bad.md'),/order/);
  for(const invalid of ['strategy','[unknown]'])assert.throws(()=>parseCase(caseSource('bad','','    services: '+invalid),'bad.md'),/service/);
+});
+
+const chronologyCase=()=>({title:'Example',slug:'example',headline:'Project',published:true,chronology:{title:'Project timeline',years:[{year:2026,phase:'つなぐ',periods:[{label:'夏〜通年',events:[{title:'取り組み',category:'research',image:'/uploads/cases/現地調査.jpg',imageAlt:'川の調査',caption:'調査の様子'}]}]}]}});
+const readChronology=data=>parseCase(matter.stringify('',data),'example.md');
+
+test('a CMS chronology works without legacy stages, supports later images and retains optional narrative',()=>{
+ const data=chronologyCase();
+ data.projectIntro='水を知る。<br>測る。<script>alert(1)</script>';
+ data.storySections=[{label:'01 戦略',headline:'水を起点に',body:'**取り組み**\n\n![写真](/uploads/cases/photo.jpg)<script>bad()</script>'}];
+ const item=readChronology(data);
+ assert.deepEqual(item.timeline,[]);
+ const event=item.chronology.years[0].periods[0].events[0];
+ assert.equal(event.image,'/uploads/cases/現地調査.jpg');
+ assert.equal(event.imageAlt,'川の調査');assert.equal(event.caption,'調査の様子');
+ assert.match(item.projectIntro,/<br\s*\/>/);assert.doesNotMatch(item.projectIntro,/<script/);
+ assert.match(item.storySections[0].html,/<strong>取り組み<\/strong>/);
+ assert.match(item.storySections[0].html,/amenowa-renew\/uploads\/cases\/photo.jpg/);
+ assert.doesNotMatch(item.storySections[0].html,/<script/);
+ delete data.chronology.years[0].periods[0].events[0].image;
+ assert.equal(readChronology(data).chronology.years[0].periods[0].events[0].image,'');
+ const legacy=parseCase(caseSource('legacy'),'legacy.md');
+ assert.equal(legacy.chronology,null);assert.deepEqual(legacy.storySections,[]);
+});
+
+test('CMS years sort chronologically while preserving period order and rejecting ambiguous years or categories',()=>{
+ const data=chronologyCase();
+ data.chronology.years.push({...structuredClone(data.chronology.years[0]),year:2024});
+ assert.deepEqual(readChronology(data).chronology.years.map(year=>year.year),[2024,2026]);
+ data.chronology.years[1].year=2026;
+ assert.throws(()=>readChronology(data),/Duplicate chronology year/);
+ for(const invalid of ['2026',2026.5,0]){
+  const bad=chronologyCase();bad.chronology.years[0].year=invalid;
+  assert.throws(()=>readChronology(bad),/Invalid chronology year/);
+ }
+ const unknown=chronologyCase();unknown.chronology.years[0].periods[0].events[0].category='field';
+ assert.throws(()=>readChronology(unknown),/event\/category/);
+ const empty=chronologyCase();empty.chronology.years[0].periods[0].events=[];
+ assert.throws(()=>readChronology(empty),/requires events/);
+});
+
+test('chronology images reject unsafe or non-public locations',()=>{
+ for(const image of ['javascript:alert(1)','file:///E:/private.jpg','http://example.com/photo.jpg','https://user:secret@example.com/photo.jpg','/uploads/../private.jpg','/uploads/%2e%2e/private.jpg','/uploads/case%5cprivate.jpg']){
+  const bad=chronologyCase();bad.chronology.years[0].periods[0].events[0].image=image;
+  assert.throws(()=>readChronology(bad),/Invalid (case image|public URL)/);
+ }
+ const publicImage=chronologyCase();publicImage.chronology.years[0].periods[0].events[0].image='https://example.com/photo.jpg';
+ assert.equal(readChronology(publicImage).chronology.years[0].periods[0].events[0].image,'https://example.com/photo.jpg');
 });

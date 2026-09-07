@@ -5,6 +5,7 @@ import "./amenowa.css";
 import "./responsive.css";
 import "./fidelity.css";
 import "./content-structure.css";
+import "./case-chronology.css";
 
 const root=document.getElementById('root');
 const app=<React.StrictMode><App/></React.StrictMode>;

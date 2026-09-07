@@ -3,6 +3,7 @@ import path from 'node:path';
 import matter from 'gray-matter';
 import {marked} from 'marked';
 import sanitizeHtml from 'sanitize-html';
+import {parseChronology} from './case-chronology.mjs';
 
 export function publicLink(value, filename) {
  if(!value)return '';
@@ -43,22 +44,36 @@ export function parsePost(source, filename, today = new Date().toLocaleDateStrin
  return {slug,title:String(data.title),date,time,category:data.category,excerpt:String(data.excerpt || ''),image:String(data.image || ''),imageAlt:String(data.imageAlt || ''),kind,externalUrl,sourceUrl,html:kind==='article'?renderBody(content):''};
 }
 
+export function caseImage(value,filename){
+ const image=String(value||'');
+ if(!image)return '';
+ if(image.startsWith('/uploads/')){
+  let decoded;
+  try{decoded=decodeURIComponent(image);}catch{throw new Error(`Invalid case image: ${filename}`);}
+  if(decoded.includes('\\')||decoded.includes('?')||decoded.includes('#')||decoded.split('/').some(part=>part==='.'||part==='..'))throw new Error(`Invalid case image: ${filename}`);
+ }else publicLink(image,filename);
+ return image;
+}
+
 export function parseCase(source,filename){
  const {data,content}=matter(source);
  if(data.published!==true)return null;
  const slug=String(data.slug||path.basename(filename,'.md'));
  if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)||!data.title||!data.headline)throw new Error(`Invalid case study: ${filename}`);
- if(!Array.isArray(data.timeline)||!data.timeline.length||data.timeline.some(step=>!step.title||!step.description))throw new Error(`Case study requires a timeline: ${filename}`);
- const image=String(data.image||'');
- if(image&&!image.startsWith('/uploads/'))publicLink(image,filename);
+ const chronology=parseChronology(data.chronology,filename,caseImage);
+ const legacyTimeline=data.timeline??[];
+ if(!Array.isArray(legacyTimeline)||(!legacyTimeline.length&&!chronology)||legacyTimeline.some(step=>!step?.title||!step.description))throw new Error(`Case study requires a timeline: ${filename}`);
+ const image=caseImage(data.image,filename);
  const order=data.order??100;
  if(typeof order!=='number'||!Number.isSafeInteger(order)||order<0)throw new Error(`Case study order must be a non-negative integer: ${filename}`);
- const timeline=data.timeline.map(step=>{
+ const timeline=legacyTimeline.map(step=>{
   const services=step.services??[];
   if(!Array.isArray(services)||services.some(service=>!['strategy','field','communication'].includes(service)))throw new Error(`Invalid case study service: ${filename}`);
   return {title:String(step.title),description:String(step.description),detail:String(step.detail||'未定'),services:[...new Set(services)],serviceDetail:String(step.serviceDetail||'未定')};
  });
- return {slug,title:String(data.title),client:String(data.client||''),headline:String(data.headline),excerpt:String(data.excerpt||''),image,imageAlt:String(data.imageAlt||''),order,timeline,html:renderBody(content)};
+ const storySections=data.storySections??[];
+ if(!Array.isArray(storySections)||storySections.some(section=>!section?.label||!section.headline||!section.body))throw new Error(`Invalid case story section: ${filename}`);
+ return {slug,title:String(data.title),client:String(data.client||''),headline:String(data.headline),excerpt:String(data.excerpt||''),image,imageAlt:String(data.imageAlt||''),order,timeline,chronology,projectIntro:renderBody(String(data.projectIntro||'')),storySections:storySections.map(section=>({label:String(section.label),headline:String(section.headline),html:renderBody(String(section.body))})),html:renderBody(content)};
 }
 
 export function loadCases(dir){

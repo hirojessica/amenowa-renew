@@ -1,0 +1,80 @@
+.case-study-detailed h1{font-size:clamp(32px,3.1vw,48px);line-height:1.65}
+.case-narrative{padding-block:65px 0}
+.case-project-intro{max-width:830px;margin:0 auto 65px}
+.case-story-section{display:grid;grid-template-columns:35% minmax(0,1fr);gap:9%;padding:55px 0;border-top:1px solid var(--line)}
+.case-story-section .eyebrow{font-size:13px;line-height:2;letter-spacing:.03em}
+.case-story-section h2{font-family:var(--serif);font-size:30px;font-weight:400;line-height:1.8;margin-top:22px}
+.case-story-section .prose p:first-child{margin-top:0}
+.case-chronology{padding-block:60px 90px;scroll-margin-top:25px}
+.chronology-heading h2{font-family:var(--serif);font-size:34px;font-weight:400;line-height:1.65;margin:22px 0}
+.chronology-heading>p{max-width:900px;font-size:15px;line-height:2.2}
+.chronology-year-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin:40px 0 30px}
+.chronology-year-links>a{display:flex;align-items:center;gap:15px;border-top:1px solid var(--brand);padding:22px 0;min-width:0}
+.chronology-year-links strong{font-family:var(--serif);font-size:30px;font-weight:400;color:var(--brand)}
+.chronology-year-links span{font-size:13px}
+.chronology-year-links svg{margin-left:auto;flex-shrink:0;color:var(--brand)}
+.chronology-controls{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:50px}
+.chronology-filters{display:flex;gap:6px 18px;flex-wrap:wrap}
+.chronology-filters button{padding:10px 0;border-bottom:2px solid transparent;color:var(--muted);font-size:12px}
+.chronology-filters button[aria-pressed=true]{color:var(--brand);border-color:var(--brand)}
+.chronology-count{font-size:12px;color:var(--muted);margin-left:auto}
+.chronology-year{margin-top:55px;scroll-margin-top:25px}
+.chronology-year-heading{display:flex;align-items:center;gap:30px;padding:0 0 24px;border-bottom:2px solid var(--brand)}
+.chronology-year-heading h3{font-family:var(--serif);font-size:48px;font-weight:400;line-height:1.2;color:var(--brand)}
+.chronology-year-heading p{font-size:13px;line-height:1.9;color:var(--muted)}
+.chronology-year-heading .chronology-phase{font-family:var(--serif);font-size:24px;color:var(--ink);margin-bottom:7px}
+.chronology-periods{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px;margin-top:22px;align-items:start}
+.chronology-period{min-width:0}
+.chronology-period>h4{font-size:14px;font-weight:500;color:var(--muted);padding:0 0 16px;border-bottom:1px solid var(--line)}
+.chronology-events{list-style:none;padding:0;margin:0}
+.chronology-event{padding:22px 0 24px;border-bottom:1px solid var(--line)}
+.chronology-category{display:block;color:var(--brand);font-size:11px;line-height:1.8;margin-bottom:12px;letter-spacing:.015em}
+.chronology-event h5{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.75;margin:0 0 14px;overflow-wrap:anywhere}
+.chronology-next{display:flex;gap:7px;align-items:baseline;font-size:12px;line-height:1.9;color:var(--muted)}
+.chronology-next svg{flex-shrink:0;align-self:flex-start;margin-top:4px;color:var(--brand)}
+.chronology-related{font-size:11px;color:var(--muted);margin-top:10px}
+.chronology-image-placeholder{display:flex;justify-content:center;align-items:center;gap:10px;height:76px;margin-top:20px;background:var(--tint);border:1px dashed var(--line);color:#84928f;font-size:11px}
+.chronology-media{margin-top:20px}
+.chronology-image-button{display:block;width:100%;padding:0;cursor:zoom-in;text-align:right}
+.chronology-image-button img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:var(--tint)}
+.chronology-image-button>span{display:inline-flex;align-items:center;gap:5px;color:var(--brand);font-size:11px;margin-top:9px}
+.chronology-media figcaption{font-size:12px;color:var(--muted);line-height:1.8;text-align:left;margin-top:8px}
+.chronology-empty{padding:25px 0;color:var(--muted);font-size:13px}
+.chronology-outcome{margin-top:60px;padding:40px;background:var(--tint);border-top:1px solid var(--brand)}
+.chronology-outcome h3{font-family:var(--serif);font-size:30px;font-weight:400;margin:20px 0}
+.chronology-outcome p{max-width:1000px;font-size:15px;line-height:2.2}
+.chronology-lightbox-caption{padding:0 20px 20px;font-size:13px;color:var(--muted)}
+@media(max-width:800px){
+ .case-narrative{padding-top:45px}
+ .case-project-intro{margin-bottom:40px}
+ .case-story-section{grid-template-columns:1fr;gap:25px;padding-block:35px}
+ .case-story-section .eyebrow{font-size:11px}
+ .case-story-section h2{font-size:26px;margin-top:16px}
+ .case-chronology{padding-block:30px 50px}
+ .chronology-heading h2{font-size:27px}
+ .chronology-heading>p{font-size:13px}
+ .chronology-year-links{gap:16px;margin:30px 0 18px}
+ .chronology-year-links>a{display:block;padding:14px 0}
+ .chronology-year-links strong{font-size:25px}
+ .chronology-year-links span{display:block;font-size:11px;line-height:1.7;margin-top:7px}
+ .chronology-year-links svg{display:none}
+ .chronology-controls{gap:12px;margin-bottom:30px}
+ .chronology-filters{gap:4px 16px}
+ .chronology-filters button{font-size:11px}
+ .chronology-count{margin-left:0}
+ .chronology-year{margin-top:35px}
+ .chronology-year-heading{display:block;padding-bottom:20px}
+ .chronology-year-heading h3{font-size:40px;margin-bottom:16px}
+ .chronology-year-heading .chronology-phase{font-size:23px}
+ .chronology-year-heading p{font-size:12px}
+ .chronology-periods{grid-template-columns:1fr;gap:30px}
+ .chronology-period>h4{font-size:14px;padding-bottom:12px}
+ .chronology-events{border-left:1px solid var(--line);margin-left:4px;padding-left:20px}
+ .chronology-event{position:relative;padding-top:20px}
+ .chronology-event::before{content:'';position:absolute;left:-24px;top:25px;width:7px;height:7px;border-radius:50%;background:var(--brand)}
+ .chronology-event h5{font-size:21px}
+ .chronology-next{font-size:13px}
+ .chronology-outcome{margin-top:40px;padding:25px 20px}
+ .chronology-outcome h3{font-size:26px}
+ .chronology-outcome p{font-size:13px}
+}
