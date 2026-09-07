@@ -5,7 +5,7 @@ media:
   rename: safe
 content:
   - name: news
-    label: お知らせ・ブログ
+    label: INSIGHTS（お知らせ・ブログ・note）
     type: collection
     path: site/content/news
     format: yaml-frontmatter
@@ -42,7 +42,26 @@ content:
         type: select
         required: true
         options:
-          values: [お知らせ, ブログ, プレスリリース]
+          values: [お知らせ, ブログ, プレスリリース, note]
+      - name: kind
+        label: 掲載方法
+        type: select
+        default: article
+        options:
+          values:
+            - name: article
+              label: サイト内に本文を掲載
+            - name: link
+              label: noteなど外部の記事へリンク
+        description: 未選択の場合はサイト内に本文を掲載します。
+      - name: externalUrl
+        label: 外部の記事URL
+        type: string
+        description: 外部の記事へリンクする場合は必須です。httpsから始まる記事URLを入力してください。本文は不要です。
+      - name: sourceUrl
+        label: 転載元の記事URL（任意）
+        type: string
+        description: noteの本文を手動で掲載する場合などに、元の記事へのリンクを表示できます。
       - name: published
         label: サイトに掲載する
         type: boolean
@@ -59,4 +78,64 @@ content:
       - name: body
         label: 本文
         type: rich-text
+        description: サイト内に本文を掲載する場合は入力してください。noteの原稿を手動でコピーできます。
+  - name: cases
+    label: CASE STUDY（取り組み・事例）
+    type: collection
+    path: site/content/cases
+    format: yaml-frontmatter
+    filename: "{fields.slug}.md"
+    view:
+      primary: title
+      fields: [title, client, published]
+    fields:
+      - name: title
+        label: 事例名
+        type: string
         required: true
+      - name: slug
+        label: 事例URL
+        type: string
+        required: true
+        pattern: '^[a-z0-9]+(-[a-z0-9]+)*$'
+        description: 公開後は変更しないでください。
+      - name: published
+        label: サイトに掲載する
+        type: boolean
+      - name: client
+        label: 英字ラベル
+        type: string
+      - name: headline
+        label: メイン見出し
+        type: string
+        required: true
+      - name: excerpt
+        label: 紹介文
+        type: text
+      - name: image
+        label: 活動写真
+        type: image
+      - name: imageAlt
+        label: 写真の説明
+        type: string
+      - name: timeline
+        label: 取り組みの流れ
+        type: object
+        list: true
+        required: true
+        fields:
+          - name: title
+            label: 見出し
+            type: string
+            required: true
+          - name: description
+            label: 取り組み内容
+            type: text
+            required: true
+          - name: detail
+            label: 詳細・実施時期
+            type: text
+            description: 確定していない場合は「未定」としてください。
+      - name: body
+        label: 補足本文（任意）
+        type: rich-text

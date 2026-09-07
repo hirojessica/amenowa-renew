@@ -17,5 +17,5 @@ export default defineConfig({
       clientFiles: ["./src/main.jsx"],
     },
   },
-  plugins: [react(),{name:'news-content',buildStart(){generate();},configureServer(server){server.watcher.add('content/news');server.watcher.on('all',(_,file)=>{if(file.includes('content/news')&&file.endsWith('.md'))generate();});}}],
+  plugins: [react(),{name:'news-content',buildStart(){generate();},configureServer(server){server.watcher.add(['content/news','content/cases']);server.watcher.on('all',(_,file)=>{if((file.includes('content/news')||file.includes('content/cases')||file.includes('content\\news')||file.includes('content\\cases'))&&file.endsWith('.md'))generate();});}}],
 });

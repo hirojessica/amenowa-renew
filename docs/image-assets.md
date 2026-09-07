@@ -1,5 +1,9 @@
 # サイトの画像
 
+## ABOUTの深本南さんの写真
+
+2026-09-07、ユーザー提供の `cd1d1af8-53f5-48de-96d7-ba36a5df9005.jpg`（1108×1477px）を、加工せず `site/public/images/team/fukamoto-minami.jpg` にコピーしました。縦横比を保ってチーム欄に表示し、未確定の役割・紹介文は「未定」としています。
+
 ## 正式ロゴの文字画像
 
 2026-09-07、ユーザー提供の青い文字画像 `amenowa_2.png`（1307×277px・透過PNG）を、加工せず `site/public/assets/amenowa-wordmark-blue.png` にコピーしました。ヘッダー・フッター・OGP画像で使用します。シンボルと表示レイアウトは既存の設定を維持しています。

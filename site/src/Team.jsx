@@ -4,6 +4,7 @@ import {href} from './site.js';
 import './team.css';
 
 const advisors = [
+  {name:'岩永 朝陽',role:'代表取締役',details:['紹介文：未定'],image:'../representative-asahi.jpg',size:800},
   {
     name: '蔵治 光一郎',
     role: '技術アドバイザー',
@@ -28,6 +29,8 @@ const advisors = [
   },
 ];
 
+advisors.push({name:'深本 南',role:'役割：未定',details:['紹介文：未定'],image:'fukamoto-minami.jpg',size:1108,height:1477});
+
 export function TeamSection() {
   useEffect(()=>{
     if(window.location.hash!=='#team')return;
@@ -46,11 +49,11 @@ export function TeamSection() {
     <header className="team-heading">
       <span className="eyebrow">TEAM &amp; ADVISORS</span>
       <h2 id="team-heading">チーム・アドバイザー</h2>
-      <p>多様な専門性をつなぎ、地域の水と向き合う。</p>
+      <p>多様な専門性をつなぎ、水と自然に向き合う。</p>
     </header>
     <div className="advisor-grid">
       {advisors.map(advisor=><article className="advisor" key={advisor.name}>
-        <img className="advisor-photo" src={href(`images/team/${advisor.image}`)} alt={`${advisor.name}（${advisor.role}）`} width={advisor.size} height={advisor.size} loading="lazy" decoding="async"/>
+        <img className="advisor-photo" src={href(`images/team/${advisor.image}`)} alt={`${advisor.name}（${advisor.role}）`} width={advisor.size} height={advisor.height||advisor.size} loading="lazy" decoding="async"/>
         <div className="advisor-info">
           <h3>{advisor.name}</h3>
           <p className="advisor-role">{advisor.role}</p>
@@ -66,8 +69,8 @@ export function TeamIntro() {
   return <section className="home-team content-width" aria-labelledby="home-team-heading">
     <div>
       <span className="eyebrow">TEAM &amp; ADVISORS</span>
-      <h2 id="home-team-heading">専門家とともに、<br className="mobile-only"/>水の課題に向き合う。</h2>
-      <p>水と森林、地質、IT。それぞれの知見を持ち寄り、水の未来を考えます。</p>
+      <h2 id="home-team-heading">専門家とともに、<br className="mobile-only"/>水と自然に向き合う。</h2>
+      <p>水と森林、地質、IT。それぞれの知見を持ち寄ります。</p><span className="home-team-names">岩永 朝陽 ／ 蔵治 光一郎 ／ 髙嶋 洋 ／ 久松 慎一 ／ 深本 南</span>
     </div>
     <a className="text-link team-link" href={href('about/#team')}>チームを知る<ArrowRight size={24} weight="thin" aria-hidden="true"/></a>
   </section>;

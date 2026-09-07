@@ -1,3 +1,5 @@
+import {products} from './catalog.js';
+import cases from './generated/cases.json';
 export const BASE = import.meta.env.BASE_URL;
 export const href = (path = '') => `${BASE}${path.replace(/^\//, '')}`;
 export const services = [
@@ -7,11 +9,16 @@ export const services = [
   {slug:'brand', name:'サステナブルブランドの構築', english:'SUSTAINABLE COMMUNICATION', headline:['取り組みの価値を、','伝わる言葉に。'], intro:'水や自然に向き合う企業の姿勢を、社会とのつながりへ。取り組みの背景と内容を整理し、共感と信頼につながる発信を支援します。', image:'地域との対話・活動の写真', lead:'確かな活動から、信頼をつくる。', body:'企業の目標と、現場で積み重ねる活動。その関係を丁寧に言語化し、関係者と共有できるメッセージとコミュニケーションを考えます。', items:[['価値を整理する','企業が取り組む目的や、社会との関わりを整理します。'],['言葉と形にする','活動内容に基づき、伝えるメッセージと表現を検討します。'],['関係を育てる','地域や関係者との対話を通じて、継続的な発信につなげます。']], deliverables:['取り組みの目的・価値の整理','メッセージと発信方針の検討','活動を伝えるコンテンツの企画']}
 ];
 export const formatDate = date => date.slice(0,10).replaceAll('-', '.');
-export const staticRoutes = ['','about/','works/','news/','recruit/','contact/','contact/complete/','privacy/', ...services.map(s=>`works/${s.slug}/`)];
+export const staticRoutes = ['','products/','services/','case-study/','insights/',...products.map(p=>`products/${p.slug}/`),...cases.map(c=>`case-study/${c.slug}/`),'about/','works/','news/','recruit/','contact/','contact/complete/','privacy/', ...services.map(s=>`works/${s.slug}/`)];
 export const pageMeta = path => {
  const service=services.find(s=>path===`works/${s.slug}/`);
- const names={'':'水を測る。水を知る。水の未来を、ともにつくる。','about/':'私たちについて','works/':'事業内容','news/':'お知らせ・ブログ','recruit/':'採用情報','contact/':'お問い合わせ','contact/complete/':'お問い合わせ完了','privacy/':'個人情報の取り扱い'};
+ const product=products.find(s=>path===`products/${s.slug}/`),study=cases.find(c=>path===`case-study/${c.slug}/`);
+ const names={'':'水と自然を知る。守り、育てる。未来につなぐ。','products/':'プロダクト','services/':'サービス','case-study/':'導入事例','insights/':'お知らせ・ブログ','about/':'私たちについて','works/':'事業内容','news/':'お知らせ・ブログ','recruit/':'採用情報','contact/':'お問い合わせ','contact/complete/':'お問い合わせ完了','privacy/':'個人情報の取り扱い'};
  const descriptions={
+  'products/':'水と自然を知るAquaInsightsと、地域の行動につなげるMEGURUをご紹介します。',
+  'services/':'戦略づくり、現場の実装、社会への発信。水と自然の課題にともに向き合う3つのサービス。',
+  'case-study/':'構想から実装、地域の活動へ。amenowaの取り組みをご紹介します。',
+  'insights/':'amenowaのお知らせ・ブログ・note記事。水と自然を知り、行動につなげる知見をお届けします。',
   'about/':'株式会社amenowaの企業理念、代表メッセージ、チーム・アドバイザー、会社概要をご紹介します。',
   'works/':'水資源の評価・管理、水利用の見える化、森林保全・涵養、情報発信を支援する事業をご紹介します。',
   'news/':'amenowaからのお知らせ、プレスリリース、水の未来を考えるブログをお届けします。',
@@ -21,5 +28,5 @@ export const pageMeta = path => {
   'privacy/':'amenowaにおける個人情報の取り扱いについてご案内します。',
   '404/':'ページが見つかりません。URLをご確認ください。'
  };
- return {title:`${service?.name || names[path] || (path==='404/'?'ページが見つかりません':'NEWS')} | amenowa`, description:service?.intro || descriptions[path] || '観測とデータから、持続可能な水利用と水の再生へ。amenowaは、水の未来を地域とともにつくります。'};
+ return {title:`${product?.name || study?.title || service?.name || names[path] || (path==='404/'?'ページが見つかりません':'NEWS')} | amenowa`, description:product?.intro || study?.excerpt || service?.intro || descriptions[path] || 'amenowaは、企業や自治体とともに、水や自然の状態を理解し、地域の行動につなげ、その成果を社会へ伝える会社です。'};
 };

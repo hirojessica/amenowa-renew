@@ -15,6 +15,13 @@
 | ページ | パス |
 | --- | --- |
 | HOME | `/` |
+| PRODUCTS | `/products/` |
+| AquaInsights | `/products/aquainsights/` |
+| MEGURU | `/products/meguru/` |
+| SERVICES | `/services/` |
+| CASE STUDY | `/case-study/` |
+| ルスツ事例 | `/case-study/rusutsu-resort/` |
+| INSIGHTS | `/insights/` |
 | ABOUT | `/about/` |
 | WORKS一覧 | `/works/` |
 | 水評価アセスメント（CDP） | `/works/cdp/` |
@@ -22,13 +29,13 @@
 | 森林保全と水の涵養 | `/works/regeneration/` |
 | サステナブルブランドの構築 | `/works/brand/` |
 | NEWS一覧 | `/news/` |
-| サンプル記事3件 | `/news/demo-notice/`、`/news/demo-water-story/`、`/news/demo-press/` |
+| 本番から移行した記事4件 | `/news/記事slug/`（[移行記録](news-migration.md)） |
 | RECRUIT | `/recruit/` |
 | CONTACT | `/contact/` |
 | 問い合わせ完了 | `/contact/complete/` |
 | 個人情報の取り扱い | `/privacy/` |
 
-15ページと404ページを生成します。デモは各パスの前に `/amenowa-renew` が付きます。CONTACTの入力・確認・デモ完了は同じページ内の状態として実装しています。
+現在は23ページと404ページを生成します。デモは各パスの前に `/amenowa-renew` が付きます。新構成ではPRODUCTSとSERVICESを主ナビに置き、旧WORKS各ページは既存リンクの互換性のため維持しています。CONTACTの入力・確認・デモ完了は同じページ内の状態として実装しています。[構成変更とバックアップ](content-restructure.md)を参照してください。
 
 ## 技術構成
 

@@ -6,7 +6,7 @@ import {publicSiteUrl} from './social-meta.mjs';
 const root=path.resolve('dist/client');
 const siteUrl=publicSiteUrl();
 const routes=JSON.parse(readFileSync(path.join(root,'route-manifest.json'),'utf8'));
-const expectedImage=new URL('assets/ogp-amenowa-v2.png',siteUrl).href;
+const expectedImage=new URL('assets/ogp-amenowa-v3.png',siteUrl).href;
 const required=['og:title','og:type','og:url','og:description','og:image','og:image:width','og:image:height','og:image:alt','twitter:card','twitter:title','twitter:description','twitter:image','twitter:image:alt'];
 for(const route of routes){
   const html=readFileSync(path.join(root,route,'index.html'),'utf8');
@@ -28,7 +28,7 @@ for(const route of routes){
   assert.equal(values['og:image:height'],'630');
   assert.equal(values['og:type'],/^news\/.+\/$/.test(route)?'article':'website');
 }
-const image=readFileSync(path.join(root,'assets/ogp-amenowa-v2.png'));
+const image=readFileSync(path.join(root,'assets/ogp-amenowa-v3.png'));
 assert.equal(image.subarray(0,8).toString('hex'),'89504e470d0a1a0a');
 assert.equal(image.readUInt32BE(16),1200);
 assert.equal(image.readUInt32BE(20),630);

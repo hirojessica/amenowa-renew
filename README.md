@@ -1,15 +1,16 @@
 # amenowa renewal demo
 
-採用された「Nature & Science」案を基にした、amenowaのリニューアル確認用サイトです。
+採用された「Nature & Science」の確定デザインを維持し、2026年の制作仕様書に合わせたamenowaのリニューアル確認用サイトです。
 
 - デモ: https://hirojessica.github.io/amenowa-renew/
 - 公開ブランチ: `main`
-- NEWS編集画面: [Pages CMS](https://app.pagescms.org/)
+- INSIGHTS・CASE STUDY編集画面: [Pages CMS](https://app.pagescms.org/)
+- [新しい構成・バックアップ・noteの掲載方法](docs/content-restructure.md)
 - [CMS・お問い合わせの設定手順](docs/operations.md)
 - [ページ構成・実装メモ](docs/implementation.md)
 - [デザイン・動作の確認記録](site/design-qa.md)
 
-トップの清流写真と水循環イラストは、採用案を参照して再生成した画像です。その他の画像部分は「画像はめ込み予定」の枠です。写真・図版、下層ページの新しい文言、会社情報、採用条件、個人情報の取り扱いは確認用です。NEWSは3件のサンプルを掲載しています。既存WordPressの記事移行や本番サイトの切り替えは行っていません。
+トップの清流写真と水循環イラストは、採用案を参照して再生成した画像です。チームには提供・移行済みの写真を使用しています。未提供の製品画面や活動写真は「画像はめ込み予定」、未確定の紹介文や事例詳細は「未定」です。既存WordPressの公開記事4件と記事URLを維持し、noteの手動リンク掲載・本文掲載を追加しています。本番サイトの切り替えは行っていません。
 
 お問い合わせは入力・確認・完了を試せるデモです。現在のGitHub Pagesビルドは送信機能を無効にしており、入力内容を外部へ送信・保存しません。
 
@@ -36,13 +37,17 @@ npm run build
 
 | 内容 | ファイル |
 | --- | --- |
-| NEWS | `site/content/news/*.md` またはPages CMS |
+| INSIGHTS・お知らせ・note | `site/content/news/*.md` またはPages CMS |
+| CASE STUDY | `site/content/cases/*.md` またはPages CMS |
 | 共通色・基本レイアウト | `site/src/amenowa.css` |
 | スマートフォン表示 | `site/src/responsive.css` |
 | 採用画像への最終調整 | `site/src/fidelity.css` |
-| トップ・共通ヘッダー／フッター | `site/src/App.jsx` |
-| 下層ページ | `site/src/Pages.jsx` |
-| 事業紹介文 | `site/src/site.js` |
+| トップ | `site/src/Landing.jsx` |
+| 共通ヘッダー／フッター | `site/src/App.jsx` |
+| 製品・サービス・事例ページ | `site/src/ContentPages.jsx` |
+| ABOUT・記事・その他の下層ページ | `site/src/Pages.jsx` |
+| 製品・サービスの原稿 | `site/src/catalog.js` |
+| 新構成用の追加スタイル | `site/src/content-structure.css` |
 | お問い合わせ | `site/src/Contact.jsx` |
 | CMS設定 | `.pages.yml` |
 | デモ公開設定 | `.github/workflows/pages.yml` |
