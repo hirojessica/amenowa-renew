@@ -14,7 +14,7 @@ export function Brand(){return <span className="brand"><img className="brand-mar
 export function Button({to,children,secondary=false}){return <a className={`button ${secondary?'button-secondary':''}`} href={href(to)}>{children}<Arrow/></a>;}
 export function Media({name='写真',className='',ratio}){
  const media=illustrativeMedia[name];
- if(media)return <div className={`media-placeholder has-image ${media.fit==='contain'?'media-illustration':''} ${className}`} style={ratio?{aspectRatio:ratio}:undefined}><img src={href(media.src)} alt={`${media.alt}（AI生成）`} width={media.width} height={media.height} loading="lazy" decoding="async" style={media.position?{objectPosition:media.position}:undefined}/><span className="generated-image-note" aria-hidden="true">AI生成イメージ</span></div>;
+ if(media)return <div className={`media-placeholder has-image ${media.fit==='contain'?'media-illustration':''} ${className}`} style={ratio?{aspectRatio:ratio}:undefined}><img src={href(media.src)} alt={`${media.alt}（AI生成）`} width={media.width} height={media.height} loading="lazy" decoding="async" style={media.position?{objectPosition:media.position}:undefined}/></div>;
  return <div className={`media-placeholder ${className}`} style={ratio?{aspectRatio:ratio}:undefined} role="img" aria-label={`${name}：画像はめ込み予定`}><div className="media-label"><ImageIcon size={32} weight="thin" aria-hidden="true"/><span>画像はめ込み予定</span><small>{name}</small></div></div>;
 }
 function Header({path}){
