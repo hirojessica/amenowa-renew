@@ -4,7 +4,7 @@ export const products = [
     headline:['水と自然を知り、','次の判断へ。'],
     intro:'観測・調査・地形地質・水利用などをつなぎ、自然の状態を理解し、守り育てる判断と開示につなげるプラットフォーム。',
     image:'AquaInsights 公開用サンプル画面', imageSrc:'images/products/aquainsights-section-20260905.webp', imageAlt:'AquaInsightsの観測断面画面。数値・識別情報は非表示', imageWidth:2400, imageHeight:1350,
-    screenNote:'数値・識別情報を伏せた画面サンプルです。',
+    screenNote:'サンプル画像です',
     lead:'自然を理解し、意思決定に使う。',
     body:'データを集めること自体を目的とせず、水と自然の状態を知り、次の判断に活かします。',
     items:[['見えるようにする','観測・調査・地形地質・水利用の情報をつなぎます。'],['理解する','水と自然の状態を理解できる情報に整理します。'],['判断・開示につなげる','自然を守り育てるための判断と、社会への開示につなげます。']],

@@ -7,7 +7,7 @@ import cases from './generated/cases.json';
 
 export function ProductVisual({product,className=''}) {
   return product.imageSrc
-    ? <figure className={`product-visual ${className}`}><div className={`product-visual-stage ${product.slug==='meguru'?'product-visual-phones':''}`}>{product.slug==='meguru'?product.screens.slice(0,3).map(screen=><img key={screen.name} src={href(screen.src)} alt={`${product.name} ${screen.name}のサンプル画面`} width={screen.width} height={screen.height} loading="lazy" decoding="async"/>):<img src={href(product.imageSrc)} alt={product.imageAlt} width={product.imageWidth} height={product.imageHeight} loading="lazy" decoding="async"/>}</div><figcaption>{product.screenNote||'画面は提供資料に基づくサンプルです。'}</figcaption></figure>
+    ? <figure className={`product-visual ${className}`}><div className={`product-visual-stage ${product.slug==='meguru'?'product-visual-phones':''}`}>{product.slug==='meguru'?product.screens.slice(0,3).map(screen=><img key={screen.name} src={href(screen.src)} alt={`${product.name} ${screen.name}のサンプル画面`} width={screen.width} height={screen.height} loading="lazy" decoding="async"/>):<img src={href(product.imageSrc)} alt={product.imageAlt} width={product.imageWidth} height={product.imageHeight} loading="lazy" decoding="async"/>}</div><figcaption>{product.screenNote||'サンプル画像です'}</figcaption></figure>
     : <Media className={`product-visual ${className}`} name={product.image}/>;
 }
 
