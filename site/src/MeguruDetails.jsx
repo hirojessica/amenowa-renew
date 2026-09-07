@@ -1,0 +1,36 @@
+import {ArrowRight,ArrowUUpLeft} from '@phosphor-icons/react';
+import {ProductGallery} from './ProductGallery.jsx';
+import {href} from './site.js';
+import {meguruSteps,meguruCycle,meguruValues,meguruAdditionalScreens} from './meguruContent.js';
+
+function ScreenPair({product,names,idPrefix}){
+ const available=[...product.screens,...meguruAdditionalScreens];
+ const screens=names.map(name=>available.find(screen=>screen.name===name));
+ return <div className={`meguru-screen-pair${screens.length===1?' meguru-screen-single':''}`}><ProductGallery product={{...product,screens}} idPrefix={idPrefix}/><p className="meguru-sample-caption">サンプル画像です</p></div>;
+}
+
+export function MeguruDetails({product}){
+ return <div className="meguru-details">
+  <section className="service-lead content-width meguru-intro"><span className="eyebrow">OUR APPROACH</span><h2>企業の環境投資を、<span className="keep-phrase">地域で動く人の力へ。</span></h2><p>企業が環境のために使う資金を、地域で必要な小さな行動に変え、市民・観光客・学生・事業者が直接参加できるようにします。</p><p>参加者は、活動の対価として報酬を受け取るだけではありません。「なぜこの活動が必要なのか」「どの企業が支援しているのか」「その企業が地域とどう関わっているのか」を知りながら行動します。</p><p>企業の環境投資、市民の行動、地域の成果を、一つの循環としてつなぐことがMEGURUの役割です。</p></section>
+
+  <section id="support" className="meguru-how content-width"><div className="section-heading"><div><span className="eyebrow">HOW MEGURU WORKS</span><h2>企業の環境投資が、<span className="keep-phrase">地域の行動に変わる。</span></h2></div></div><p className="meguru-section-intro">企業の資金を、「誰が・どこで・何をするか」が見えるMissionへ変換します。市民は自分に合った活動を選び、実施し、報酬を受け取る。その活動と成果は企業にも返り、次の環境投資につながります。</p><ol className="meguru-six-steps">{meguruSteps.map((step,i)=><li className={step.featured?'is-featured':''} key={step.label}><span className="meguru-step-label"><span>{String(i+1).padStart(2,'0')}</span><small lang="en">{step.label}</small></span><h3>{step.title}</h3><p>{step.body}</p>{step.featured&&<a className="text-link" href="#meguru-sponsors">企業を知る体験へ<ArrowRight size={21} weight="thin" aria-hidden="true"/></a>}</li>)}</ol></section>
+
+  <section className="meguru-cycle content-width" aria-labelledby="meguru-cycle-title"><span className="eyebrow">THE MEGURU CYCLE</span><h2 id="meguru-cycle-title"><span className="keep-phrase">お金が、</span><span className="keep-phrase">行動になって、</span><span className="keep-phrase">自然に返る。</span></h2><ol>{meguruCycle.map((label,i)=><li key={label}><span className="meguru-cycle-dot" aria-hidden="true"/>{label}{i<meguruCycle.length-1&&<ArrowRight size={23} weight="thin" aria-hidden="true"/>}</li>)}</ol><div className="meguru-cycle-return"><ArrowUUpLeft size={24} weight="thin" aria-hidden="true"/><span>次の環境投資が、また新しい行動を生む。</span></div></section>
+
+  <div className="meguru-experiences content-width">
+   <section className="meguru-experience"><div className="meguru-experience-copy"><span className="eyebrow">FIND YOUR MISSION</span><h2>環境活動を、<span className="keep-phrase">「参加しやすい選択肢」に。</span></h2><p>MEGURUは、参加する人のメリットから設計します。近くでできる。短時間でできる。自分に合った活動を選べる。そして、活動した分だけ対価を受け取れる。その積み重ねが、自分の地域を守る力になります。</p><ul className="meguru-checklist"><li>距離、時間、報酬から選べる</li><li>親子参加や屋内外など条件で探せる</li><li>環境活動の対価を受け取れる</li><li>活動履歴がMY IMPACTとして残る</li><li>地域全体の目標にも参加できる</li></ul><details className="meguru-mission-examples"><summary>地域に必要なMissionの例</summary><ul><li>川や湧水の状態を撮影する</li><li>ごみを回収する</li><li>植樹や苗木管理を行う</li><li>水路や観測設備を点検する</li><li>節水に取り組む</li><li>森林整備を行う</li></ul></details></div><ScreenPair product={product} names={['HOME','MAP']}/></section>
+
+   <section id="meguru-sponsors" className="meguru-experience meguru-sponsor-experience"><div className="meguru-experience-copy"><span className="eyebrow">KNOW WHY / KNOW WHO</span><h2>活動を通じて、<span className="keep-phrase">地域と企業が出会う。</span></h2><p>Missionの中で、その企業がなぜ活動を支援しているのかを伝え、参加者が実際の地域活動を通じて企業の取組を知る仕組みにします。</p><ul className="meguru-sponsor-questions"><li>なぜ、いまこの活動が必要なのか</li><li>どの企業が支援しているのか</li><li>その企業は、なぜこの地域を支援しているのか</li></ul><p>Missionを終えた後には企業ページから、これまで支援した活動や、地域との関係、企業自身のメッセージを見ることができます。</p><p>「名前は知っているけれど、何をしている会社か分からない」から、「この地域の自然を一緒に守っている会社」へ。環境活動そのものが、企業と地域の新しいコミュニケーションになります。</p><a className="meguru-sponsor-link" href="#meguru-sponsor-screen-1"><span><small>Missionを支える企業</small>Sponsored by ○○株式会社</span><ArrowRight size={23} weight="thin" aria-hidden="true"/></a><span className="meguru-sponsor-link-caption">企業ページの画面を見る</span></div><ScreenPair product={product} names={['Mission','Company Page']} idPrefix="meguru-sponsor-screen"/></section>
+
+   <section className="meguru-experience"><div className="meguru-experience-copy"><span className="eyebrow">TAKE ACTION / GET REWARDED</span><h2>行動を記録し、<span className="keep-phrase">活動の対価を受け取る。</span></h2><p>市民・観光客・学生・地域事業者が、現地でMissionを実行します。実施内容に応じて、GPS、写真、Before/After、QR・NFC、IoT、管理者・専門家確認などで完了を確認し、実際の行動を記録として残します。</p><p>Missionを達成した人には報酬を還元。短時間の活動でも対価を得られ、自然を守ること、地域に貢献することが、参加する人自身のメリットにもつながります。</p><p className="meguru-future-rewards">将来的には、日常で使えるポイントや決済等への交換も想定しています。</p></div><ScreenPair product={product} names={['Mission Execution','Wallet']}/></section>
+
+   <section className="meguru-experience"><div className="meguru-experience-copy"><span className="eyebrow">MY IMPACT / COLLECTIVE</span><h2>自分の行動を、<span className="keep-phrase">地域の成果へ。</span></h2><p>参加数、活動時間、地域への報酬還元額、保全活動などを蓄積します。自分の活動履歴をMY IMPACTで振り返り、地域全体の目標にも参加できます。</p><p>自分の活動が地域にどう役立ったかを知ることが、次のMissionに参加するきっかけになります。</p></div><ScreenPair product={product} names={['My Impact','Collective']}/></section>
+
+   <section className="meguru-experience"><div className="meguru-experience-copy"><span className="eyebrow">FOR COMPANIES</span><h2>環境投資を、<span className="keep-phrase">「起きた変化」で語る。</span></h2><p>企業は、拠出した環境予算によって地域で何が起きたのかを確認できます。参加人数、Mission数、地域への報酬還元額、実施された保全活動などを蓄積し、環境投資の成果として可視化します。</p><ul className="meguru-checklist"><li>何人が参加したか</li><li>地域にいくら還元されたか</li><li>どのような活動が行われたか</li><li>どのような環境成果につながったか</li></ul><p>AquaInsightsと組み合わせることで、水や自然側の変化まで測定し、TNFD等の開示や企業のサステナビリティ発信にもつなげていきます。</p></div><ScreenPair product={product} names={['Corporate Dashboard']}/></section>
+  </div>
+
+  <section className="meguru-value-section content-width"><div className="section-heading"><div><span className="eyebrow">VALUE FOR EVERYONE</span><h2>参加する人にも、企業にも、地域にも。</h2></div></div><div className="meguru-values">{meguruValues.map(value=><article key={value.label}><span className="eyebrow">{value.label}</span><h3>{value.title}</h3><ul>{value.items.map(item=><li key={item}>{item}</li>)}</ul></article>)}</div></section>
+
+  <section className="meguru-connection content-width"><span className="eyebrow">MEGURU × AQUAINSIGHTS</span><h2>まず人を動かす。<br/><span className="keep-phrase">必要なら、</span><span className="keep-phrase">自然の変化まで測る。</span></h2><p><strong>MEGURUは単独でも導入できます。</strong>地域に必要なMissionを設計し、市民参加と報酬還元から始めることができます。</p><p>AquaInsightsと接続すると、観測データをもとにMissionの優先順位を決め、活動後に水量、涵養、森林など自然側の変化を再び測ることができます。</p><ol className="meguru-connection-flow"><li><strong>AquaInsights</strong><span>いま、どうなっているか？</span><ArrowRight size={25} weight="thin" aria-hidden="true"/></li><li><strong>MEGURU</strong><span>では、何をするか？</span><ArrowRight size={25} weight="thin" aria-hidden="true"/></li><li><strong>AquaInsights</strong><span>行動によって何が変わったか？</span></li></ol><a className="text-link" href={href('products/aquainsights/')}>AquaInsightsを見る<ArrowRight size={26} weight="thin" aria-hidden="true"/></a></section>
+ </div>;
+}

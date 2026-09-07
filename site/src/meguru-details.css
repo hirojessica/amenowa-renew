@@ -1,0 +1,104 @@
+.meguru-details .keep-phrase{display:inline-block;max-width:100%}
+.meguru-details h2{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.8;text-wrap:balance}
+.meguru-intro p{max-width:1050px}.meguru-intro p+p{margin-top:22px}
+.meguru-how{scroll-margin-top:25px;padding-bottom:65px}
+.meguru-section-intro{max-width:1080px;font-size:15px;line-height:2.2}
+.meguru-six-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 45px;list-style:none;margin:40px 0 0;padding:0}
+.meguru-six-steps>li{border-top:1px solid var(--line);padding-top:24px;min-width:0}
+.meguru-six-steps>li.is-featured{border-top:2px solid var(--brand)}
+.meguru-step-label{display:flex;align-items:center;gap:12px;color:var(--brand)}
+.meguru-step-label>span{font-family:var(--serif);font-size:18px}
+.meguru-step-label small{font-size:10px;letter-spacing:.04em;line-height:1.7}
+.meguru-six-steps h3{font-family:var(--serif);font-size:25px;line-height:1.8;font-weight:400;margin:19px 0;min-height:3.6em;text-wrap:balance}
+.meguru-six-steps p{font-size:14px;line-height:2.2}
+.meguru-six-steps .text-link{margin-top:18px;font-size:13px;gap:15px}
+.meguru-cycle{padding-block:40px 65px;border-top:1px solid var(--line)}
+.meguru-cycle h2{margin:20px 0 40px}
+.meguru-cycle h2,.meguru-connection h2{text-wrap:wrap}
+.meguru-cycle ol{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));list-style:none;padding:0;margin:0;gap:24px}
+.meguru-cycle li{position:relative;padding-top:24px;font-size:15px;line-height:1.9;text-wrap:balance}
+.meguru-cycle-dot{position:absolute;top:0;left:0;width:6px;height:6px;background:var(--brand);border-radius:50%}
+.meguru-cycle li>svg{position:absolute;right:-18px;top:-8px;color:var(--brand)}
+.meguru-cycle li:not(:last-child)::after{content:'';position:absolute;top:2px;left:12px;right:8px;border-top:1px solid var(--line)}
+.meguru-cycle-return{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--brand);border-inline:1px solid var(--brand);border-radius:0 0 20px 20px;margin-top:24px;padding:16px 22px;color:var(--brand);font-size:13px}
+.meguru-experience{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8%;align-items:center;border-top:1px solid var(--line);padding:60px 0;scroll-margin-top:25px}
+.meguru-experience h2{margin:22px 0 26px;font-size:30px}
+.meguru-experience-copy>p{font-size:15px;line-height:2.2}
+.meguru-experience-copy>p+p{margin-top:22px}
+.meguru-experience .eyebrow{font-size:12px;line-height:1.8}
+.meguru-checklist,.meguru-sponsor-questions{list-style:none;padding:0;margin:26px 0;font-size:14px;line-height:2}
+.meguru-checklist li,.meguru-sponsor-questions li{position:relative;padding:10px 0 10px 19px;border-bottom:1px solid var(--line)}
+.meguru-checklist li::before,.meguru-sponsor-questions li::before{content:'';position:absolute;left:0;top:22px;width:4px;height:4px;background:var(--brand);border-radius:50%}
+.meguru-sponsor-questions{color:var(--brand)}
+.meguru-screen-pair{min-width:0}
+.meguru-screen-pair .screen-placeholders{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:0;align-items:start}
+.meguru-screen-pair .screen-placeholders figure{min-width:0;scroll-margin-top:45px}
+.meguru-screen-pair .screen-placeholders figcaption{font-size:12px;gap:10px;flex-wrap:wrap}
+.meguru-screen-single .screen-placeholders{grid-template-columns:minmax(0,285px);justify-content:center}
+.meguru-sample-caption{font-size:11px;color:var(--muted);margin-top:14px;text-align:center}
+.product-screen-detail-note{font-size:11px;color:var(--muted);line-height:1.8;margin-top:10px}
+.product-lightbox .product-screen-detail-note{padding:0 20px 20px;margin:0;font-size:12px}
+.meguru-mission-examples{margin-top:25px;border-block:1px solid var(--line);padding:17px 0;font-size:14px}
+.meguru-mission-examples summary{cursor:pointer;color:var(--brand)}
+.meguru-mission-examples ul{padding-left:21px;margin:18px 0 0;line-height:2.3}
+.meguru-sponsor-link{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:20px;background:var(--tint);border-left:2px solid var(--brand);margin-top:25px;color:var(--brand);font-size:16px;line-height:1.9}
+.meguru-sponsor-link small{display:block;font-size:11px;color:var(--muted);margin-bottom:5px}
+.meguru-sponsor-link>svg{flex-shrink:0}
+.meguru-sponsor-link-caption{display:block;font-size:11px;color:var(--muted);margin-top:8px}
+.meguru-future-rewards{padding-top:20px;border-top:1px solid var(--line);font-size:13px!important;color:var(--muted)}
+.meguru-value-section{padding-block:45px 65px}
+.meguru-values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:45px}
+.meguru-values article{border-top:1px solid var(--brand);padding-top:25px;min-width:0}
+.meguru-values .eyebrow{font-size:12px}
+.meguru-values h3{font-family:var(--serif);font-size:27px;font-weight:400;line-height:1.7;margin:18px 0}
+.meguru-values ul{list-style:none;padding:0;margin:0;font-size:14px;line-height:2.1}
+.meguru-values li+li{margin-top:14px}
+.meguru-connection{border-top:1px solid var(--line);padding-block:55px 70px}
+.meguru-connection h2{margin:23px 0 27px}
+.meguru-connection>p{max-width:1020px;font-size:15px;line-height:2.2}
+.meguru-connection>p+p{margin-top:20px}
+.meguru-connection-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;padding:30px 0;margin:32px 0;border-block:1px solid var(--line);gap:60px}
+.meguru-connection-flow li{position:relative;min-width:0}
+.meguru-connection-flow strong{display:block;font-family:var(--serif);font-size:27px;font-weight:400;color:var(--brand)}
+.meguru-connection-flow span{display:block;font-size:14px;margin-top:10px;line-height:1.9}
+.meguru-connection-flow svg{position:absolute;right:-36px;top:20px;color:var(--brand)}
+@media(min-width:801px) and (max-width:1100px){
+ .meguru-six-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .meguru-cycle ol{gap:17px}.meguru-cycle li{font-size:12px}
+ .meguru-experience{gap:5%}.meguru-experience h2{font-size:26px}
+ .meguru-screen-pair .screen-placeholders{gap:15px}
+ .meguru-values{gap:28px}
+}
+@media(max-width:800px){
+ .meguru-details h2{font-size:26px;line-height:1.8}
+ .meguru-intro p{font-size:14px}.meguru-intro p+p{margin-top:18px}
+ .meguru-how{padding-bottom:35px}
+ .meguru-section-intro{font-size:14px}
+ .meguru-six-steps{grid-template-columns:1fr;gap:27px;margin-top:30px}
+ .meguru-six-steps h3{font-size:24px;min-height:0;margin:16px 0}
+ .meguru-cycle{padding-block:35px 40px}.meguru-cycle h2{margin-bottom:28px}
+ .meguru-cycle ol{grid-template-columns:1fr;gap:23px;margin-left:4px}
+ .meguru-cycle li{padding:0 0 0 27px;font-size:15px}
+ .meguru-cycle-dot{top:12px}
+ .meguru-cycle li:not(:last-child)::after{top:25px;bottom:-16px;left:2px;right:auto;border-top:0;border-left:1px solid var(--line)}
+ .meguru-cycle li>svg{right:auto;left:-8px;top:28px;width:20px;transform:rotate(90deg)}
+ .meguru-cycle-return{margin-top:23px;padding:12px 15px;font-size:12px;line-height:1.9}
+ .meguru-cycle-return svg{flex-shrink:0}
+ .meguru-experience{grid-template-columns:1fr;gap:30px;padding:40px 0}
+ .meguru-experience h2{font-size:26px;margin:17px 0 23px}
+ .meguru-experience-copy>p{font-size:14px}
+ .meguru-screen-pair{max-width:560px;width:100%;margin:auto}
+ .meguru-screen-pair .screen-placeholders{gap:16px}
+ .meguru-screen-single .screen-placeholders{grid-template-columns:minmax(0,260px)}
+ .meguru-screen-pair .screen-placeholders figcaption{font-size:11px;gap:4px;display:block}
+ .meguru-screen-pair .screen-enlarge{display:flex;margin-top:6px}
+ .meguru-sponsor-link{padding:16px;font-size:14px}
+ .meguru-value-section{padding-block:30px 40px}.meguru-values{grid-template-columns:1fr;gap:30px}
+ .meguru-values h3{font-size:24px;margin:15px 0}
+ .meguru-connection{padding-block:35px 40px}
+ .meguru-connection h2{font-size:clamp(23px,6.6vw,26px)}
+ .meguru-connection>p{font-size:14px}
+ .meguru-connection-flow{grid-template-columns:1fr;gap:40px;padding:25px 0}
+ .meguru-connection-flow strong{font-size:26px}
+ .meguru-connection-flow svg{right:auto;left:0;top:auto;bottom:-34px;transform:rotate(90deg);width:21px}
+}

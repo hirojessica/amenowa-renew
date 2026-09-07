@@ -5,6 +5,7 @@ import {products,supportServices} from './catalog.js';
 import {ProductGallery} from './ProductGallery.jsx';
 import {CaseNarrative,CaseChronology} from './CaseChronology.jsx';
 import {AquaInsightsSupport} from './AquaInsightsSupport.jsx';
+import {MeguruDetails} from './MeguruDetails.jsx';
 import cases from './generated/cases.json';
 
 export function ProductVisual({product,className=''}) {
@@ -24,9 +25,8 @@ export function Product({product:p}){
  const isAqua=p.slug==='aquainsights';
  return <>
   <div className="breadcrumb content-width"><a href={href()}>HOME</a><span>/</span><a href={href('products/')}>PRODUCTS</a><span>/</span><span>{p.name}</span></div>
-  <section className="service-hero"><div><span className="eyebrow">{p.english}</span><p className="service-name">{p.name}</p><h1>{p.headline.map(line=><span key={line}>{line}</span>)}</h1><p>{p.intro}</p><a className="text-link" href="#support">{isAqua?'導入支援を見る':'できることを見る'}<Arrow/></a></div><ProductVisual product={p}/></section>
-  <section className="service-lead content-width"><span className="eyebrow">OUR APPROACH</span><h2>{p.lead}</h2><p>{p.body}</p></section>
-  {isAqua?<AquaInsightsSupport/>:<section id="support" className="support-section content-width"><div className="section-heading"><div><span className="eyebrow">WHAT WE DO</span><h2>できること</h2></div></div><div className="support-grid">{p.items.map(([title,description],i)=><article key={title}><span className="support-number">0{i+1}</span><h3>{title}</h3><p>{description}</p></article>)}</div></section>}
+  <section className="service-hero"><div><span className="eyebrow">{p.english}</span><p className="service-name">{p.name}</p><h1>{p.headline.map(line=><span key={line}>{line}</span>)}</h1><p>{p.intro}</p><a className="text-link" href="#support">{isAqua?'導入支援を見る':'仕組みを見る'}<Arrow/></a></div><ProductVisual product={p}/></section>
+  {isAqua?<><section className="service-lead content-width"><span className="eyebrow">OUR APPROACH</span><h2>{p.lead}</h2><p>{p.body}</p></section><AquaInsightsSupport/></>:<MeguruDetails product={p}/>}
   <section className="product-screens content-width"><span className="eyebrow">PRODUCT VIEW</span><h2>{isAqua?'自然を理解するための情報。':'参加から、次の行動まで。'}</h2>{p.screenNote&&<p className="product-screen-note">{p.screenNote}</p>}<ProductGallery product={p}/></section>
   <section className="related-works content-width"><span className="eyebrow">PRODUCTS</span><h2>プロダクトについて</h2><ProductLinks/></section><ContactCTA/>
  </>;

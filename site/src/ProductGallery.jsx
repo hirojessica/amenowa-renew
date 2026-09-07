@@ -3,7 +3,7 @@ import {ArrowsOut,X} from '@phosphor-icons/react';
 import {Media} from './App.jsx';
 import {href} from './site.js';
 
-export function ProductGallery({product}) {
+export function ProductGallery({product,idPrefix}) {
   const [selected,setSelected]=useState(null);
   const dialogRef=useRef(null);
   const openerRef=useRef(null);
@@ -34,13 +34,14 @@ export function ProductGallery({product}) {
 
   return <>
     <div className={`screen-placeholders${product.slug==='meguru'?' screen-placeholders-mobile':''}`}>
-      {product.screens.map(screen=><figure key={screen.name}>
+      {product.screens.map((screen,index)=><figure key={screen.name} id={idPrefix?`${idPrefix}-${index}`:undefined}>
         {screen.src
           ? <button type="button" className="product-screen-link" onClick={event=>open(screen,event)} aria-haspopup="dialog" aria-label={`${product.name} ${screen.name}の画面を拡大`}>
               <img src={href(screen.src)} alt={screen.alt} width={screen.width} height={screen.height} loading="lazy" decoding="async"/>
             </button>
           : <Media name={`${product.name} / ${screen.name}`} ratio={product.slug==='meguru'?'0.56':'1.6'}/>}
         <figcaption><span>{screen.name}</span>{screen.src&&<button type="button" className="screen-enlarge" onClick={event=>open(screen,event)} aria-haspopup="dialog" aria-label={`${screen.name}の画面を拡大`}>拡大する<ArrowsOut size={13} aria-hidden="true"/></button>}</figcaption>
+        {screen.note&&<p className="product-screen-detail-note">{screen.note}</p>}
       </figure>)}
     </div>
     <dialog ref={dialogRef} className={`product-lightbox${product.slug==='meguru'?' product-lightbox-portrait':''}`} aria-labelledby={titleId}
@@ -55,6 +56,7 @@ export function ProductGallery({product}) {
         <div className="product-lightbox-image">
           <img src={href(selected.src)} alt={selected.alt} width={selected.width} height={selected.height}/>
         </div>
+        {selected.note&&<p className="product-screen-detail-note">{selected.note}</p>}
       </div>}
     </dialog>
   </>;

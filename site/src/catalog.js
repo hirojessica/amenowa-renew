@@ -18,11 +18,9 @@ export const products = [
   {
     slug:'meguru', name:'MEGURU', english:'ENVIRONMENT ACTION PLATFORM',
     headline:['自然の課題を、','みんなの行動に','変える。'],
-    intro:'企業・自治体・地域住民をつなぎ、地域に必要な環境活動をMissionとして実行につなげるプラットフォーム。',
+    intro:'地域に必要な環境活動をMissionとして届け、参加した人に報酬を還元するEnvironment Action Platform。',
     image:'MEGURU 公開用サンプル画面', imageSrc:'images/products/meguru-home-branded-20260907.png', imageAlt:'MEGURU by amenowaのHOME画面。地域の状況と参加できるミッションを表示', imageWidth:853, imageHeight:1844,
-    lead:'知るだけで終わらせない。',
-    body:'自然の課題を具体的な行動へ。人が参加し、行動の結果を残しながら、次の取り組みにつなげます。',
-    items:[['Missionに変える','地域に必要な環境活動を、具体的なMissionにします。'],['人が参加する','企業・自治体・地域住民が、活動を通じてつながります。'],['行動を次につなげる','行動の結果を残し、次の取り組みにつなげます。']],
+    screenNote:'サンプル画像です',
     screens:[
       {name:'HOME',src:'images/products/meguru-home-branded-20260907.png',width:853,height:1844,alt:'MEGURU by amenowaのホーム画面。地域の状況と近くで参加できるミッションを表示'},
       {name:'MAP',src:'images/products/meguru-map-20260905.webp',width:678,height:1467,alt:'活動場所とミッションの報酬を地図で確認する画面'},
