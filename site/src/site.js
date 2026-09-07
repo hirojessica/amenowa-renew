@@ -13,7 +13,7 @@ export const staticRoutes = ['','products/','services/','case-study/','insights/
 export const pageMeta = path => {
  const service=services.find(s=>path===`works/${s.slug}/`);
  const product=products.find(s=>path===`products/${s.slug}/`),study=cases.find(c=>path===`case-study/${c.slug}/`);
- const names={'':'水と自然を知る。守り、育てる。未来につなぐ。','products/':'プロダクト','services/':'サービス','case-study/':'導入事例','insights/':'お知らせ・ブログ','about/':'私たちについて','works/':'事業内容','news/':'お知らせ・ブログ','recruit/':'採用情報','contact/':'お問い合わせ','contact/complete/':'お問い合わせ完了','privacy/':'個人情報の取り扱い'};
+ const names={'':'水と自然を知る。守り、育てる。未来につなぐ。','products/':'プロダクト','services/':'サービス','case-study/':'導入事例','insights/':'お知らせ','about/':'私たちについて','works/':'事業内容','news/':'お知らせ','recruit/':'採用情報','contact/':'お問い合わせ','contact/complete/':'お問い合わせ完了','privacy/':'個人情報の取り扱い'};
  const descriptions={
   'products/':'水と自然を知るAquaInsightsと、地域の行動につなげるMEGURUをご紹介します。',
   'services/':'戦略づくり、現場の実装、社会への発信。水と自然の課題にともに向き合う3つのサービス。',
