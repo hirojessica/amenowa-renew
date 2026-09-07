@@ -33,7 +33,7 @@ export function parsePost(source, filename, today = new Date().toLocaleDateStrin
  if(date>today) return null;
  const time=String(data.time || '00:00');
  if(!/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(time)) throw new Error(`Invalid publication time: ${filename}`);
- if(!data.title || !['お知らせ','ブログ','プレスリリース','note'].includes(data.category)) throw new Error(`Missing title or invalid category: ${filename}`);
+ if(!data.title || !['お知らせ','ブログ','プレスリリース'].includes(data.category)) throw new Error(`Missing title or invalid category: ${filename}`);
  const kind=data.kind||'article';
  if(!['article','link'].includes(kind))throw new Error(`Invalid article kind: ${filename}`);
  const externalUrl=kind==='link'?publicLink(data.externalUrl,filename):'';

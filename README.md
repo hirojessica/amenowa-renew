@@ -37,7 +37,7 @@ npm run build
 
 | 内容 | ファイル |
 | --- | --- |
-| INSIGHTS・お知らせ・note | `site/content/news/*.md` またはPages CMS |
+| INSIGHTS・お知らせ・ブログ・プレスリリース | `site/content/news/*.md` またはPages CMS。note転載記事は「ブログ」 |
 | CASE STUDY | `site/content/cases/*.md` またはPages CMS |
 | 共通色・基本レイアウト | `site/src/amenowa.css` |
 | スマートフォン表示 | `site/src/responsive.css` |

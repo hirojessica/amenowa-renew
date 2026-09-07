@@ -5,7 +5,7 @@ media:
   rename: safe
 content:
   - name: news
-    label: INSIGHTS（お知らせ・ブログ・note）
+    label: INSIGHTS（お知らせ・ブログ）
     type: collection
     path: site/content/news
     format: yaml-frontmatter
@@ -41,8 +41,9 @@ content:
         label: カテゴリー
         type: select
         required: true
+        description: noteから転載する記事も「ブログ」を選択してください。
         options:
-          values: [お知らせ, ブログ, プレスリリース, note]
+          values: [お知らせ, ブログ, プレスリリース]
       - name: kind
         label: 掲載方法
         type: select
