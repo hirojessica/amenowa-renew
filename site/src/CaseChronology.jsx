@@ -1,5 +1,5 @@
 import {useEffect,useId,useRef,useState} from 'react';
-import {ArrowRight,ArrowsOut,Image as ImageIcon,X} from '@phosphor-icons/react';
+import {ArrowRight,ArrowsOut,X} from '@phosphor-icons/react';
 import {href} from './site.js';
 import {caseCategories} from './caseCategories.js';
 
@@ -36,9 +36,10 @@ export function CaseChronology({chronology,slug}){
    <div className="chronology-controls"><div className="chronology-filters" role="group" aria-label="年表をサービスで絞り込む"><button type="button" aria-pressed={category==='all'} onClick={()=>setCategory('all')}>すべて</button>{caseCategories.map(item=><button type="button" key={item.id} aria-pressed={category===item.id} onClick={()=>setCategory(item.id)}>{item.number} {item.short}</button>)}</div><p className="chronology-count" role="status">{total}件の取り組み</p></div>
    {chronology.years.map(year=>{
      const periods=year.periods.map(period=>({...period,events:period.events.filter(event=>category==='all'||event.category===category)})).filter(period=>period.events.length);
+     const gridRows=1+5*Math.max(0,...periods.map(period=>period.events.length));
      return <section id={`${slug}-${year.year}`} className="chronology-year" key={year.year}>
        <header className="chronology-year-heading"><h3>{year.year}</h3><div><p className="chronology-phase">{year.phase}</p><p>{year.description}</p></div></header>
-       {periods.length?<div className="chronology-periods">{periods.map((period,i)=><section className="chronology-period" key={i}>
+       {periods.length?<div className="chronology-periods" style={{'--chronology-rows':gridRows}}>{periods.map((period,i)=><section className="chronology-period" key={i}>
          <h4>{period.label}</h4>
          <ol className="chronology-events">{period.events.map((event,j)=>{
            const item=caseCategories.find(item=>item.id===event.category);
@@ -46,7 +47,7 @@ export function CaseChronology({chronology,slug}){
              <span className="chronology-category">{item.number} {item.short}</span><h5>{event.title}</h5>
              {event.next&&<p className="chronology-next"><ArrowRight size={17} weight="thin" aria-hidden="true"/><span>{event.next}</span></p>}
              {event.related&&<p className="chronology-related">＋ {event.related}</p>}
-             {event.image?<figure className="chronology-media"><button type="button" className="chronology-image-button" aria-haspopup="dialog" aria-label={`${event.title}の画像を拡大`} onClick={e=>open(event,e.currentTarget)}><img src={mediaHref(event.image)} alt={event.imageAlt} loading="lazy" decoding="async"/><span><ArrowsOut size={14} aria-hidden="true"/>拡大する</span></button>{event.caption&&<figcaption>{event.caption}</figcaption>}</figure>:<div className="chronology-image-placeholder" role="img" aria-label={`${event.title}：画像はめ込み予定`}><ImageIcon size={20} weight="thin" aria-hidden="true"/><span>画像はめ込み予定</span></div>}
+             {event.image&&<figure className="chronology-media"><button type="button" className="chronology-image-button" aria-haspopup="dialog" aria-label={`${event.title}の画像を拡大`} onClick={e=>open(event,e.currentTarget)}><img src={mediaHref(event.image)} alt={event.imageAlt} loading="lazy" decoding="async"/><span><ArrowsOut size={14} aria-hidden="true"/>拡大する</span></button>{event.caption&&<figcaption>{event.caption}</figcaption>}</figure>}
            </li>;
          })}</ol>
        </section>)}</div>:<p className="chronology-empty">この年の該当する取り組みはありません。</p>}

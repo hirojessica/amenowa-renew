@@ -29,11 +29,10 @@
 .chronology-events{list-style:none;padding:0;margin:0}
 .chronology-event{padding:22px 0 24px;border-bottom:1px solid var(--line)}
 .chronology-category{display:block;color:var(--brand);font-size:11px;line-height:1.8;margin-bottom:12px;letter-spacing:.015em}
-.chronology-event h5{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.75;margin:0 0 14px;overflow-wrap:anywhere}
+.chronology-event h5{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.75;margin:0 0 14px;overflow-wrap:anywhere;text-wrap:balance}
 .chronology-next{display:flex;gap:7px;align-items:baseline;font-size:12px;line-height:1.9;color:var(--muted)}
 .chronology-next svg{flex-shrink:0;align-self:flex-start;margin-top:4px;color:var(--brand)}
 .chronology-related{font-size:11px;color:var(--muted);margin-top:10px}
-.chronology-image-placeholder{display:flex;justify-content:center;align-items:center;gap:10px;height:76px;margin-top:20px;background:var(--tint);border:1px dashed var(--line);color:#84928f;font-size:11px}
 .chronology-media{margin-top:20px}
 .chronology-image-button{display:block;width:100%;padding:0;cursor:zoom-in;text-align:right}
 .chronology-image-button img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:var(--tint)}
@@ -44,6 +43,21 @@
 .chronology-outcome h3{font-family:var(--serif);font-size:30px;font-weight:400;margin:20px 0}
 .chronology-outcome p{max-width:1000px;font-size:15px;line-height:2.2}
 .chronology-lightbox-caption{padding:0 20px 20px;font-size:13px;color:var(--muted)}
+/* Share each event's category, title, next step, related text and optional media
+   rows across periods. Content determines height; no clipping or fixed heights. */
+@media(min-width:801px){
+ @supports(grid-template-rows:subgrid){
+  .chronology-periods{align-items:stretch;row-gap:0}
+  .chronology-period{display:grid;grid-template-rows:subgrid;grid-row:span var(--chronology-rows)}
+  .chronology-events{display:grid;grid-template-rows:subgrid;grid-row:2/-1}
+  .chronology-event{display:grid;grid-template-rows:subgrid;grid-row:span 5}
+  .chronology-category{grid-row:1}
+  .chronology-event h5{grid-row:2}
+  .chronology-next{grid-row:3}
+  .chronology-related{grid-row:4}
+  .chronology-media{grid-row:5}
+ }
+}
 @media(max-width:800px){
  .case-narrative{padding-top:45px}
  .case-project-intro{margin-bottom:40px}

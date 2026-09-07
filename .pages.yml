@@ -266,9 +266,9 @@ content:
                         label: 関連する分野（任意）
                         type: string
                       - name: image
-                        label: 写真・画面画像
+                        label: 写真・画面画像（任意）
                         type: image
-                        description: 後から追加できます。空欄は画像枠を表示。登録した画像はクリックで拡大できます。
+                        description: 画像のある取り組みだけ登録してください。空欄の場合は文字だけを表示します。後から追加でき、登録した画像はクリックで拡大できます。
                       - name: imageAlt
                         label: 画像の説明
                         type: string
