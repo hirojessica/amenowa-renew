@@ -11,6 +11,7 @@
 .advisor-info h3{font-family:var(--serif);font-size:clamp(24px,2.2vw,29px);font-weight:400;letter-spacing:.04em;line-height:1.5;margin:0 0 11px}
 .advisor-info p{font-size:13px;line-height:1.9}
 .advisor-role{color:var(--brand)}
+.advisor-role-tail{white-space:nowrap}
 .advisor-info .advisor-specialty{font-size:12px;margin-top:4px}
 .advisor-info .advisor-details{margin-top:18px}
 .advisor-details span{display:block}

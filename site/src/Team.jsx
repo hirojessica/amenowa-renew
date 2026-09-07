@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {Fragment,useEffect} from 'react';
 import {ArrowRight} from '@phosphor-icons/react';
 import {href} from './site.js';
 import './team.css';
@@ -29,7 +29,7 @@ const advisors = [
   },
 ];
 
-advisors.push({name:'深本 南',role:'役割：未定',details:['紹介文：未定'],image:'fukamoto-minami.jpg',size:1108,height:1477});
+advisors.push({name:'深本 南',role:'サステナブル・ブランディング プロデューサー',details:['紹介文：未定'],image:'fukamoto-minami.jpg',size:1108,height:1477});
 
 export function TeamSection() {
   useEffect(()=>{
@@ -56,7 +56,7 @@ export function TeamSection() {
         <img className="advisor-photo" src={href(`images/team/${advisor.image}`)} alt={`${advisor.name}（${advisor.role}）`} width={advisor.size} height={advisor.height||advisor.size} loading="lazy" decoding="async"/>
         <div className="advisor-info">
           <h3>{advisor.name}</h3>
-          <p className="advisor-role">{advisor.role}</p>
+          <p className="advisor-role">{advisor.role.split(' ').map((part,i)=><Fragment key={i}>{i?' ':''}<span className={i?'advisor-role-tail':undefined}>{part}</span></Fragment>)}</p>
           {advisor.specialty&&<p className="advisor-specialty">{advisor.specialty}</p>}
           <p className="advisor-details">{advisor.details.map(line=><span key={line}>{line}</span>)}</p>
         </div>
