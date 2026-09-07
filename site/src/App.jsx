@@ -7,11 +7,16 @@ import {Home} from './Landing.jsx';
 import {Products,Product,Services,CaseStudies,CaseStudy} from './ContentPages.jsx';
 import {products} from './catalog.js';
 import cases from './generated/cases.json';
+import {illustrativeMedia} from './media.js';
 
 export const Arrow=({size=30})=><ArrowRight size={size} weight="thin" aria-hidden="true"/>;
 export function Brand(){return <span className="brand"><img className="brand-mark" src={href('assets/amenowa-symbol-official.png')} alt="" width="602" height="309"/><img className="brand-word-image" src={href('assets/amenowa-wordmark-blue.png')} alt="" width="1307" height="277"/></span>;}
 export function Button({to,children,secondary=false}){return <a className={`button ${secondary?'button-secondary':''}`} href={href(to)}>{children}<Arrow/></a>;}
-export function Media({name='写真',className='',ratio}){return <div className={`media-placeholder ${className}`} style={ratio?{aspectRatio:ratio}:undefined} role="img" aria-label={`${name}：画像はめ込み予定`}><div className="media-label"><ImageIcon size={32} weight="thin" aria-hidden="true"/><span>画像はめ込み予定</span><small>{name}</small></div></div>;}
+export function Media({name='写真',className='',ratio}){
+ const media=illustrativeMedia[name];
+ if(media)return <div className={`media-placeholder has-image ${media.fit==='contain'?'media-illustration':''} ${className}`} style={ratio?{aspectRatio:ratio}:undefined}><img src={href(media.src)} alt={`${media.alt}（AI生成）`} width={media.width} height={media.height} loading="lazy" decoding="async" style={media.position?{objectPosition:media.position}:undefined}/><span className="generated-image-note" aria-hidden="true">AI生成イメージ</span></div>;
+ return <div className={`media-placeholder ${className}`} style={ratio?{aspectRatio:ratio}:undefined} role="img" aria-label={`${name}：画像はめ込み予定`}><div className="media-label"><ImageIcon size={32} weight="thin" aria-hidden="true"/><span>画像はめ込み予定</span><small>{name}</small></div></div>;
+}
 function Header({path}){
  const[open,setOpen]=useState(false),[worksOpen,setWorksOpen]=useState(false);const navRef=useRef(null),toggleRef=useRef(null);
  useEffect(()=>{if(!open)return;const prev=document.body.style.overflow;document.body.style.overflow='hidden';const handler=e=>{if(e.key==='Escape'){setOpen(false);toggleRef.current?.focus();}if(e.key==='Tab'){const nodes=[toggleRef.current,...navRef.current.querySelectorAll('a,button')].filter(n=>n&&n.offsetParent!==null);const first=nodes[0],last=nodes.at(-1);if(e.shiftKey&&document.activeElement===first){last.focus();e.preventDefault();}else if(!e.shiftKey&&document.activeElement===last){first.focus();e.preventDefault();}}};document.addEventListener('keydown',handler);return()=>{document.body.style.overflow=prev;document.removeEventListener('keydown',handler);};},[open]);
