@@ -51,13 +51,20 @@ export function parseCase(source,filename){
  if(!Array.isArray(data.timeline)||!data.timeline.length||data.timeline.some(step=>!step.title||!step.description))throw new Error(`Case study requires a timeline: ${filename}`);
  const image=String(data.image||'');
  if(image&&!image.startsWith('/uploads/'))publicLink(image,filename);
- return {slug,title:String(data.title),client:String(data.client||''),headline:String(data.headline),excerpt:String(data.excerpt||''),image,imageAlt:String(data.imageAlt||''),timeline:data.timeline.map(step=>({title:String(step.title),description:String(step.description),detail:String(step.detail||'未定')})),html:renderBody(content)};
+ const order=data.order??100;
+ if(typeof order!=='number'||!Number.isSafeInteger(order)||order<0)throw new Error(`Case study order must be a non-negative integer: ${filename}`);
+ const timeline=data.timeline.map(step=>{
+  const services=step.services??[];
+  if(!Array.isArray(services)||services.some(service=>!['strategy','field','communication'].includes(service)))throw new Error(`Invalid case study service: ${filename}`);
+  return {title:String(step.title),description:String(step.description),detail:String(step.detail||'未定'),services:[...new Set(services)],serviceDetail:String(step.serviceDetail||'未定')};
+ });
+ return {slug,title:String(data.title),client:String(data.client||''),headline:String(data.headline),excerpt:String(data.excerpt||''),image,imageAlt:String(data.imageAlt||''),order,timeline,html:renderBody(content)};
 }
 
 export function loadCases(dir){
  const items=readdirSync(dir).filter(file=>file.endsWith('.md')).sort().map(file=>parseCase(readFileSync(path.join(dir,file),'utf8'),file)).filter(Boolean);
  if(new Set(items.map(item=>item.slug)).size!==items.length)throw new Error('Duplicate case study slugs');
- return items;
+ return items.sort((a,b)=>a.order-b.order||a.slug.localeCompare(b.slug));
 }
 export function loadPosts(dir) {
  const posts=readdirSync(dir).filter(f=>f.endsWith('.md')).map(f=>parsePost(readFileSync(path.join(dir,f),'utf8'),f)).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date)||b.time.localeCompare(a.time)||a.slug.localeCompare(b.slug));

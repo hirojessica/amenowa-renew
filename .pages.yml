@@ -84,11 +84,16 @@ content:
     label: CASE STUDY（取り組み・事例）
     type: collection
     path: site/content/cases
+    subfolders: false
     format: yaml-frontmatter
     filename: "{fields.slug}.md"
     view:
       primary: title
-      fields: [title, client, published]
+      fields: [title, order, client, published]
+      sort: [order, title]
+      default:
+        sort: order
+        order: asc
     fields:
       - name: title
         label: 事例名
@@ -106,6 +111,13 @@ content:
       - name: client
         label: 英字ラベル
         type: string
+      - name: order
+        label: 表示順（小さい数字から）
+        type: number
+        default: 100
+        options:
+          min: 0
+        description: 0以上の整数を入力してください。ルスツは10。下に追加する場合は20、30…と指定できます。同じ数字の場合はURL順になります。
       - name: headline
         label: メイン見出し
         type: string
@@ -137,6 +149,23 @@ content:
             label: 詳細・実施時期
             type: text
             description: 確定していない場合は「未定」としてください。
+          - name: services
+            label: 関連するサービス（任意・複数選択）
+            type: select
+            options:
+              multiple: true
+              values:
+                - name: strategy
+                  label: STRATEGY / 一緒に考える
+                - name: field
+                  label: FIELD / 現場で動かす
+                - name: communication
+                  label: COMMUNICATION / 社会に伝える
+            description: 選択したサービスの詳細ページにも、この取り組みが掲載されます。未選択の場合は事例ページだけに掲載します。
+          - name: serviceDetail
+            label: サービス詳細ページ用の紹介文
+            type: text
+            description: 背景・課題、具体的な取り組み、確定した成果などを記入できます。未確定の場合は「未定」。改行はそのまま表示します。
       - name: body
         label: 補足本文（任意）
         type: rich-text
