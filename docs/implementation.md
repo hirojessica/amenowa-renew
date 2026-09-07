@@ -8,7 +8,7 @@
 
 トップの清流写真と水循環イラストは、2026-09-06の追加指定により採用案を参照した生成画像へ差し替えました（[画像一覧](image-assets.md)）。その他はワイヤーフレームです。画像差し替え後も比率とレイアウトを保てる共通コンポーネント `Media` を使っています。
 
-`--brand: #0081a6` は2026-09-06に支給された正式なロゴ画像の不透明画素（RGB 0, 129, 166）に一致します。ボタン・リンクのアクセントを同じトークンで統一しています。ヘッダーとフッターには、支給されたマーク `amenowa_2_1.png`（602×309）と文字 `amenowa_1.png`（1307×278）を加工せず使用し、透明背景と元の縦横比を維持しています。
+`--brand: #0081a6` は2026-09-06に支給された正式なロゴ画像の不透明画素（RGB 0, 129, 166）に一致します。ボタン・リンクのアクセントを同じトークンで統一しています。ヘッダーとフッターには、支給されたマーク `amenowa_2_1.png`（602×309）と文字 `amenowa_2.png`（1307×277）を加工せず使用し、透明背景と元の縦横比を維持しています。
 
 ## ページ構成
 
@@ -43,7 +43,7 @@
 
 ## 素材
 
-正式ロゴ: ユーザー支給の `amenowa_2_1.png` と `amenowa_1.png`。配信ファイルは `site/public/assets/amenowa-symbol-official.png` と `amenowa-wordmark-official.png` です。
+正式ロゴ: ユーザー支給の `amenowa_2_1.png` と `amenowa_2.png`。配信ファイルは `site/public/assets/amenowa-symbol-official.png` と `amenowa-wordmark-blue.png` です。
 
 フォント: Noto Serif JP、Noto Sans JP、Barlow Condensed（SIL Open Font License）。Phosphor Icons（MIT）。依存パッケージは `site/package-lock.json` に固定しています。
 

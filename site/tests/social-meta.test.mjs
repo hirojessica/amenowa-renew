@@ -5,7 +5,7 @@ import {publicSiteUrl,socialMeta} from '../scripts/social-meta.mjs';
 test('nested share URLs and images retain the deployment base path',()=>{
   const tags=socialMeta({title:'会社概要 | amenowa',description:'会社概要'},'about/',publicSiteUrl('https://hirojessica.github.io/amenowa-renew'));
   assert.match(tags,/property="og:url" content="https:\/\/hirojessica.github.io\/amenowa-renew\/about\/"/);
-  assert.match(tags,/property="og:image" content="https:\/\/hirojessica.github.io\/amenowa-renew\/assets\/ogp-amenowa-v1.png"/);
+  assert.match(tags,/property="og:image" content="https:\/\/hirojessica.github.io\/amenowa-renew\/assets\/ogp-amenowa-v2.png"/);
   assert.match(tags,/name="twitter:card" content="summary_large_image"/);
   const production=socialMeta({title:'amenowa',description:'水'},'',publicSiteUrl('https://amenowa.co.jp'));
   assert.match(production,/property="og:url" content="https:\/\/amenowa.co.jp\/"/);

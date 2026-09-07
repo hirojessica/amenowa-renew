@@ -6,7 +6,7 @@ import {About, Works, Service, News, Article, Recruit, Contact, Privacy, Complet
 import {TeamIntro} from './Team.jsx';
 
 export const Arrow=({size=30})=><ArrowRight size={size} weight="thin" aria-hidden="true"/>;
-export function Brand(){return <span className="brand"><img className="brand-mark" src={href('assets/amenowa-symbol-official.png')} alt="" width="602" height="309"/><img className="brand-word-image" src={href('assets/amenowa-wordmark-official.png')} alt="" width="1307" height="278"/></span>;}
+export function Brand(){return <span className="brand"><img className="brand-mark" src={href('assets/amenowa-symbol-official.png')} alt="" width="602" height="309"/><img className="brand-word-image" src={href('assets/amenowa-wordmark-blue.png')} alt="" width="1307" height="277"/></span>;}
 export function Button({to,children,secondary=false}){return <a className={`button ${secondary?'button-secondary':''}`} href={href(to)}>{children}<Arrow/></a>;}
 export function Media({name='写真',className='',ratio}){return <div className={`media-placeholder ${className}`} style={ratio?{aspectRatio:ratio}:undefined} role="img" aria-label={`${name}：画像はめ込み予定`}><div className="media-label"><ImageIcon size={32} weight="thin" aria-hidden="true"/><span>画像はめ込み予定</span><small>{name}</small></div></div>;}
 function Header({path}){

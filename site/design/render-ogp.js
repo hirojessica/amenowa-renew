@@ -6,6 +6,6 @@ async page => {
     if(!document.fonts.check('54px OgpSerif','水の未来を')||!document.fonts.check('21px OgpSans','観測とデータ'))throw Error('OGP fonts did not load.');
   });
   const art=page.locator('.share-art');
-  await art.screenshot({path:'public/assets/ogp-amenowa-v1.png'});
-  return {size:await art.boundingBox(),image:'site/public/assets/ogp-amenowa-v1.png'};
+  await art.screenshot({path:'public/assets/ogp-amenowa-v2.png'});
+  return {size:await art.boundingBox(),image:'site/public/assets/ogp-amenowa-v2.png'};
 }

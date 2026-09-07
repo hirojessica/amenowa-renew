@@ -1,5 +1,9 @@
 # サイトの画像
 
+## 正式ロゴの文字画像
+
+2026-09-07、ユーザー提供の青い文字画像 `amenowa_2.png`（1307×277px・透過PNG）を、加工せず `site/public/assets/amenowa-wordmark-blue.png` にコピーしました。ヘッダー・フッター・OGP画像で使用します。シンボルと表示レイアウトは既存の設定を維持しています。
+
 ## ABOUTの代表者写真
 
 2026-09-06、ユーザー提供の `asahi.jpg` を `site/public/images/representative-asahi.jpg` にコピーし、ABOUTのMESSAGE欄に掲載しました。800×800pxのJPEGを加工せず、元の正方形の構図で表示します。PCでは本文の右側、スマートフォンでは本文の下に配置しています。

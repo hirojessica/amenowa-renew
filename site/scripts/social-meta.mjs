@@ -11,7 +11,7 @@ export function publicSiteUrl(value = process.env.SITE_URL || 'https://hirojessi
 
 export function socialMeta(page, route, siteUrl = publicSiteUrl()) {
   const url = new URL(route === '404/' ? '404.html' : route, siteUrl).href;
-  const image = new URL('assets/ogp-amenowa-v1.png', siteUrl).href;
+  const image = new URL('assets/ogp-amenowa-v2.png', siteUrl).href;
   const imageAlt = 'amenowaの公式ロゴと「水を測る。水を知る。水の未来を、ともにつくる。」のメッセージ。白地にコーポレートカラーの青い波。';
   const og = {
     'og:type': page.type || 'website',
