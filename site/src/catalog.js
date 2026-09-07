@@ -7,7 +7,6 @@ export const products = [
     screenNote:'サンプル画像です',
     lead:'自然を理解し、意思決定に使う。',
     body:'データを集めること自体を目的とせず、水と自然の状態を知り、次の判断に活かします。',
-    items:[['見えるようにする','観測・調査・地形地質・水利用の情報をつなぎます。'],['理解する','水と自然の状態を理解できる情報に整理します。'],['判断・開示につなげる','自然を守り育てるための判断と、社会への開示につなげます。']],
     screens:[
       {name:'観測断面',src:'images/products/aquainsights-section-20260905.webp',width:2400,height:1350,alt:'地質構造と地下水位を表示する観測断面。数値・識別情報は非表示'},
       {name:'水位・雨量',src:'images/products/aquainsights-rainfall-20260905.webp',width:2400,height:1350,alt:'雨量と地下水位の応答を表示する画面。数値・識別情報は非表示'},

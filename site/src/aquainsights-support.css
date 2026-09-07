@@ -1,0 +1,50 @@
+.aqua-support{scroll-margin-top:25px}
+.aqua-support .section-heading{margin-bottom:28px}
+.aqua-support .section-heading h2{line-height:1.7}
+.aqua-support .section-heading h2>span{display:inline-block}
+.aqua-support-intro{max-width:1170px;font-size:15px;line-height:2.2}
+.aqua-support-flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;padding:22px 0;margin:38px 0 30px;border-block:1px solid var(--line);gap:28px}
+.aqua-support-flow li{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:17px}
+.aqua-support-flow small{display:block;color:var(--muted);font-size:10px;letter-spacing:.1em;margin-top:5px}
+.aqua-support-flow svg{flex-shrink:0;color:var(--brand)}
+.aqua-support-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;gap:28px;padding:0;margin:0;align-items:start}
+.aqua-support-steps li{min-width:0;padding:18px 0 25px}
+.aqua-support-step-label{display:flex;align-items:center;gap:12px;color:var(--brand);font-size:10px;letter-spacing:.025em}
+.aqua-support-steps h3{font-family:var(--serif);font-size:24px;font-weight:400;line-height:1.7;margin:20px 0;min-height:3.4em;text-wrap:balance}
+.aqua-support-steps h3>span{display:inline-block}
+.aqua-support-steps p{font-size:14px;line-height:2.15}
+.aqua-support-steps p+p{margin-top:14px}
+.aqua-support-message{padding:40px;margin-top:30px;background:var(--tint);border-top:1px solid var(--brand)}
+.aqua-support-message h3{font-family:var(--serif);font-size:28px;font-weight:400;line-height:1.8;margin-bottom:20px}
+.aqua-support-message p{font-size:15px;line-height:2.2}
+.aqua-support-case{display:grid;grid-template-columns:35% minmax(0,1fr);gap:9%;padding:55px 0;margin-top:20px;border-bottom:1px solid var(--line)}
+.aqua-support-case .eyebrow{font-size:12px;line-height:2}
+.aqua-support-case h3{font-family:var(--serif);font-size:28px;font-weight:400;line-height:1.8;margin-top:22px;text-wrap:balance}
+.aqua-support-case p{font-size:14px;line-height:2.2}
+.aqua-support-case p+p{margin-top:18px}
+.aqua-support-case .text-link{font-size:14px;margin-top:26px;line-height:1.9;gap:20px}
+.aqua-support-case .text-link svg{flex-shrink:0}
+@media(min-width:801px) and (max-width:1100px){
+ .aqua-support-steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 38px}
+ .aqua-support-flow li{font-size:14px}
+ .aqua-support-steps h3{min-height:0}
+}
+@media(max-width:800px){
+ .aqua-support .section-heading h2{font-size:26px}
+ .aqua-support-intro{font-size:14px;line-height:2.2}
+ .aqua-support-flow{grid-template-columns:1fr;gap:14px;margin:28px 0 20px;padding:22px 0}
+ .aqua-support-flow li{justify-content:flex-start;position:relative;padding-left:30px;font-size:16px}
+ .aqua-support-flow small{display:inline;margin:0 0 0 12px;font-size:9px}
+ .aqua-support-flow svg{position:absolute;left:0;top:17px;width:16px;transform:rotate(90deg)}
+ .aqua-support-steps{grid-template-columns:1fr;gap:0}
+ .aqua-support-steps li{padding:25px 0 30px;border-bottom:1px solid var(--line)}
+ .aqua-support-steps h3{font-size:24px;min-height:0;margin:16px 0}
+ .aqua-support-steps p{font-size:14px}
+ .aqua-support-message{padding:26px 20px;margin-top:35px}
+ .aqua-support-message h3{font-size:24px;margin-bottom:16px}
+ .aqua-support-message p{font-size:14px}
+ .aqua-support-case{grid-template-columns:1fr;gap:22px;padding:35px 0;margin-top:10px}
+ .aqua-support-case .eyebrow{font-size:11px}
+ .aqua-support-case h3{font-size:25px;margin-top:15px}
+ .aqua-support-case .text-link{font-size:13px;gap:15px}
+}

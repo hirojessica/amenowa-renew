@@ -4,6 +4,7 @@ import {href} from './site.js';
 import {products,supportServices} from './catalog.js';
 import {ProductGallery} from './ProductGallery.jsx';
 import {CaseNarrative,CaseChronology} from './CaseChronology.jsx';
+import {AquaInsightsSupport} from './AquaInsightsSupport.jsx';
 import cases from './generated/cases.json';
 
 export function ProductVisual({product,className=''}) {
@@ -19,7 +20,17 @@ export function ProductLinks(){return <div className="work-links product-links">
 
 export function Products(){return <><PageIntro label="PRODUCTS" title="知ることから、行動へ。" description="水と自然を理解し、地域の行動につなげる。2つのプラットフォームをご紹介します。"/><section className="services-index content-width">{products.map((p,i)=><article className="service-index" key={p.slug}><a className="service-index-image" href={href(`products/${p.slug}/`)} aria-label={`${p.name}を見る`}><ProductVisual product={p}/></a><div><span className="eyebrow">0{i+1} / {p.english}</span><h2><a href={href(`products/${p.slug}/`)}>{p.name}</a></h2><p>{p.intro}</p><a className="text-link" href={href(`products/${p.slug}/`)}>詳しく見る<Arrow/></a></div></article>)}</section><ContactCTA/></>;}
 
-export function Product({product:p}){return <><div className="breadcrumb content-width"><a href={href()}>HOME</a><span>/</span><a href={href('products/')}>PRODUCTS</a><span>/</span><span>{p.name}</span></div><section className="service-hero"><div><span className="eyebrow">{p.english}</span><p className="service-name">{p.name}</p><h1>{p.headline.map(line=><span key={line}>{line}</span>)}</h1><p>{p.intro}</p><a className="text-link" href="#support">できることを見る<Arrow/></a></div><ProductVisual product={p}/></section><section className="service-lead content-width"><span className="eyebrow">OUR APPROACH</span><h2>{p.lead}</h2><p>{p.body}</p></section><section id="support" className="support-section content-width"><div className="section-heading"><div><span className="eyebrow">WHAT WE DO</span><h2>できること</h2></div></div><div className="support-grid">{p.items.map(([title,description],i)=><article key={title}><span className="support-number">0{i+1}</span><h3>{title}</h3><p>{description}</p></article>)}</div></section><section className="product-screens content-width"><span className="eyebrow">PRODUCT VIEW</span><h2>{p.slug==='aquainsights'?'自然を理解するための情報。':'参加から、次の行動まで。'}</h2>{p.screenNote&&<p className="product-screen-note">{p.screenNote}</p>}<ProductGallery product={p}/></section><section className="related-works content-width"><span className="eyebrow">PRODUCTS</span><h2>プロダクトについて</h2><ProductLinks/></section><ContactCTA/></>;}
+export function Product({product:p}){
+ const isAqua=p.slug==='aquainsights';
+ return <>
+  <div className="breadcrumb content-width"><a href={href()}>HOME</a><span>/</span><a href={href('products/')}>PRODUCTS</a><span>/</span><span>{p.name}</span></div>
+  <section className="service-hero"><div><span className="eyebrow">{p.english}</span><p className="service-name">{p.name}</p><h1>{p.headline.map(line=><span key={line}>{line}</span>)}</h1><p>{p.intro}</p><a className="text-link" href="#support">{isAqua?'導入支援を見る':'できることを見る'}<Arrow/></a></div><ProductVisual product={p}/></section>
+  <section className="service-lead content-width"><span className="eyebrow">OUR APPROACH</span><h2>{p.lead}</h2><p>{p.body}</p></section>
+  {isAqua?<AquaInsightsSupport/>:<section id="support" className="support-section content-width"><div className="section-heading"><div><span className="eyebrow">WHAT WE DO</span><h2>できること</h2></div></div><div className="support-grid">{p.items.map(([title,description],i)=><article key={title}><span className="support-number">0{i+1}</span><h3>{title}</h3><p>{description}</p></article>)}</div></section>}
+  <section className="product-screens content-width"><span className="eyebrow">PRODUCT VIEW</span><h2>{isAqua?'自然を理解するための情報。':'参加から、次の行動まで。'}</h2>{p.screenNote&&<p className="product-screen-note">{p.screenNote}</p>}<ProductGallery product={p}/></section>
+  <section className="related-works content-width"><span className="eyebrow">PRODUCTS</span><h2>プロダクトについて</h2><ProductLinks/></section><ContactCTA/>
+ </>;
+}
 
 export function Services(){return <><PageIntro label="SERVICES" title="ともに考え、現場で動かす。" description="プロダクトに加えて、戦略づくりから現場の実装、社会への発信まで伴走します。"/><section className="services-index content-width">{supportServices.map((s,i)=><article id={s.slug} className="service-index" key={s.slug}><a className="service-index-image" href={href(`services/${s.slug}/`)} aria-label={`${s.english}の事例・詳しい内容を見る`}><Media name={s.image}/></a><div><span className="eyebrow">0{i+1} / {s.english}</span><h2><a href={href(`services/${s.slug}/`)}>{s.name}</a></h2><p>{s.description}</p><a className="text-link" href={href(`services/${s.slug}/`)}>事例・詳しい内容を見る<Arrow/></a></div></article>)}</section><ContactCTA/></>;}
 

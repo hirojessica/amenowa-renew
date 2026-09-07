@@ -6,6 +6,7 @@ import "./responsive.css";
 import "./fidelity.css";
 import "./content-structure.css";
 import "./case-chronology.css";
+import "./aquainsights-support.css";
 
 const root=document.getElementById('root');
 const app=<React.StrictMode><App/></React.StrictMode>;
