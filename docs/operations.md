@@ -44,6 +44,8 @@ WordPressはプラグインや複雑な編集業務を維持したい場合、[m
 
 ### FormSubmitの本番有効化手順
 
+2026年9月8日、個人情報ページに管理責任者・保管期間・削除方法の運用案と、FormSubmit公式資料で確認した保存期間を反映しました。社内設定・正式方針の確定は別途必要です。[個人情報の運用案と残る確認](privacy-operations.md)を参照してください。
+
 1. `site/.env.example`を参考に、公開環境のビルド設定に `VITE_CONTACT_MODE=live` と `VITE_FORM_ENDPOINT=https://formsubmit.co/info@amenowa.co.jp` を設定します。ローカルの `.env.local` はGit対象外です。
 2. 本番用の個人情報の取り扱いを確定し、フォームから参照できるようにします。
 3. 管理者が自分のテスト情報で送信し、info@amenowa.co.jpに届くFormSubmitの有効化メールを確認します。最初の有効化前の送信を通常問い合わせとして扱わないでください。
