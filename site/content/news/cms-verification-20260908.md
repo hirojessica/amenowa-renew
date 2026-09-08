@@ -2,7 +2,6 @@
 title: 【動作確認用】CMS保存テスト
 slug: cms-verification-20260908
 date: 2026-09-08
-time: 19:30
 category: お知らせ
 kind: article
 published: true
