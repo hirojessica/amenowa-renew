@@ -2,7 +2,7 @@
 title: 【動作確認用】CMS年表テスト
 slug: cms-verification-20260908
 published: true
-order: 20
+order: 5
 headline: CMSの事例・年表保存確認
 excerpt: 更新機能を確認するための一時的なサンプルです。実際の事例ではありません。確認後に削除します。
 chronology:
