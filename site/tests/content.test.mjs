@@ -1,14 +1,30 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {parsePost,parseCase,loadCases} from '../scripts/content.mjs';
-import {mkdtempSync,writeFileSync,unlinkSync,rmdirSync} from 'node:fs';
+import {mkdtempSync,writeFileSync,unlinkSync,rmdirSync,readFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import matter from 'gray-matter';
+import yaml from 'js-yaml';
 import {supportServices} from '../src/supportServices.js';
 import {contactTopics,contactTopicFor} from '../src/contactTopics.js';
 const source=(extra='',body='本文')=>`---\ntitle: Test\nslug: test\ndate: '2026-09-06'\ncategory: お知らせ\npublished: true\n${extra}\n---\n${body}`;
 test('drafts and future articles are excluded',()=>{assert.equal(parsePost(source().replace('published: true','published: false'),'test.md','2026-09-06'),null);assert.equal(parsePost(source(),'test.md','2026-09-05'),null);});
+test('Pages CMS saved dates and times retain YAML 1.2 values',()=>{
+ const saved=`---\ntitle: CMS test\nslug: cms-test\ndate: 2026-09-08\ntime: 19:30\ncategory: お知らせ\nkind: article\npublished: true\n---\n## 本文\n\n保存確認`;
+ const post=parsePost(saved,'cms-test.md','2026-09-08');
+ assert.equal(post.date,'2026-09-08');assert.equal(post.time,'19:30');
+ assert.equal(parsePost(saved.replace('time: 19:30','time: ""'),'cms-test.md','2026-09-08').time,'00:00');
+ assert.throws(()=>parsePost(saved.replace('time: 19:30','time: 24:00'),'cms-test.md','2026-09-08'),/Invalid publication time/);
+ assert.throws(()=>parsePost(saved.replace('time: 19:30','time: 1170'),'cms-test.md','2026-09-08'),/Invalid publication time/);
+});
+test('CMS accepts an empty optional time while rejecting malformed times',()=>{
+ const config=yaml.load(readFileSync(new URL('../../.pages.yml',import.meta.url),'utf8'));
+ const time=config.content.find(item=>item.name==='news').fields.find(field=>field.name==='time');
+ const pattern=new RegExp(time.pattern);
+ for(const value of ['', '00:00','09:05','19:30','23:59'])assert.ok(pattern.test(value),value);
+ for(const value of ['9:05','24:00','12:60','1170'])assert.ok(!pattern.test(value),value);
+});
 test('published content has safe HTML and base-prefixed media',()=>{const p=parsePost(source('',`## 見出し\n<script>alert(1)</script>\n<a href="javascript:alert(1)">x</a>\n![alt](/uploads/test.png)`),'test.md','2026-09-06');assert.match(p.html,/<h2>見出し/);assert.doesNotMatch(p.html,/<script|javascript:/);assert.match(p.html,/amenowa-renew\/uploads\/test.png/);});
 test('invalid routes, dates and categories fail the build',()=>{assert.throws(()=>parsePost(source().replace('slug: test','slug: ../../secret'),'test.md'));assert.throws(()=>parsePost(source().replace('2026-09-06','2026-02-30'),'test.md'));assert.throws(()=>parsePost(source().replace('category: お知らせ','category: unknown'),'test.md'));});
 test('uploaded PDF links work under the demo base while external links are preserved',()=>{

@@ -1,10 +1,14 @@
 import {readdirSync, readFileSync, mkdirSync, writeFileSync} from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
+import yaml from 'js-yaml';
 import {marked} from 'marked';
 import sanitizeHtml from 'sanitize-html';
 import {parseChronology} from './case-chronology.mjs';
 import {supportServices,servicePhotoSlots} from '../src/supportServices.js';
+
+// Pages CMS writes YAML 1.2: an unquoted 19:30 is a string, not base-60.
+const readFrontmatter=source=>matter(source,{engines:{yaml:text=>yaml.load(text,{schema:yaml.JSON_SCHEMA})}});
 
 export function publicLink(value, filename) {
  if(!value)return '';
@@ -26,7 +30,7 @@ export function renderBody(content) {
 }
 
 export function parsePost(source, filename, today = new Date().toLocaleDateString('sv-SE', {timeZone:'Asia/Tokyo'})) {
- const {data,content}=matter(source);
+ const {data,content}=readFrontmatter(source);
  if(data.published !== true) return null;
  const slug=String(data.slug || path.basename(filename,'.md'));
  if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw new Error(`Invalid news slug: ${filename}`);
@@ -57,7 +61,7 @@ export function caseImage(value,filename){
 }
 
 export function parseCase(source,filename){
- const {data,content}=matter(source);
+ const {data,content}=readFrontmatter(source);
  if(data.published!==true)return null;
  const slug=String(data.slug||path.basename(filename,'.md'));
  if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)||!data.title||!data.headline)throw new Error(`Invalid case study: ${filename}`);

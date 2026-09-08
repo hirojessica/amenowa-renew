@@ -35,7 +35,7 @@ content:
       - name: time
         label: 公開時刻（任意）
         type: string
-        pattern: '^(?:[01]\d|2[0-3]):[0-5]\d$'
+        pattern: '^(?:(?:[01]\d|2[0-3]):[0-5]\d)?$'
         description: 同じ公開日の記事を新しい順に並べるための時刻です。例 18:53。空欄は00:00として扱い、時刻での予約公開は行いません。
       - name: category
         label: カテゴリー
