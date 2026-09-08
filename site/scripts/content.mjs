@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import {marked} from 'marked';
 import sanitizeHtml from 'sanitize-html';
 import {parseChronology} from './case-chronology.mjs';
+import {supportServices,servicePhotoSlots} from '../src/supportServices.js';
 
 export function publicLink(value, filename) {
  if(!value)return '';
@@ -68,12 +69,20 @@ export function parseCase(source,filename){
  if(typeof order!=='number'||!Number.isSafeInteger(order)||order<0)throw new Error(`Case study order must be a non-negative integer: ${filename}`);
  const timeline=legacyTimeline.map(step=>{
   const services=step.services??[];
-  if(!Array.isArray(services)||services.some(service=>!['strategy','field','communication'].includes(service)))throw new Error(`Invalid case study service: ${filename}`);
+  if(!Array.isArray(services)||services.some(service=>!supportServices.some(item=>item.slug===service)))throw new Error(`Invalid case study service: ${filename}`);
   return {title:String(step.title),description:String(step.description),detail:String(step.detail||'未定'),services:[...new Set(services)],serviceDetail:String(step.serviceDetail||'未定')};
  });
  const storySections=data.storySections??[];
+ const photos=data.servicePhotos??[];
+ if(!Array.isArray(photos)||photos.some(photo=>!photo||!servicePhotoSlots.includes(photo.slot)))throw new Error(`Invalid service photo slot: ${filename}`);
+ if(new Set(photos.map(photo=>photo.slot)).size!==photos.length)throw new Error(`Duplicate service photo slot: ${filename}`);
+ const servicePhotos=photos.map(photo=>{
+  const image=caseImage(photo.image,filename);
+  if(image&&!String(photo.imageAlt||'').trim())throw new Error(`Service photo requires alternative text: ${filename}`);
+  return {slot:photo.slot,image,imageAlt:String(photo.imageAlt||''),caption:String(photo.caption||'')};
+ });
  if(!Array.isArray(storySections)||storySections.some(section=>!section?.label||!section.headline||!section.body))throw new Error(`Invalid case story section: ${filename}`);
- return {slug,title:String(data.title),client:String(data.client||''),headline:String(data.headline),excerpt:String(data.excerpt||''),image,imageAlt:String(data.imageAlt||''),order,timeline,chronology,projectIntro:renderBody(String(data.projectIntro||'')),storySections:storySections.map(section=>({label:String(section.label),headline:String(section.headline),html:renderBody(String(section.body))})),html:renderBody(content)};
+ return {slug,title:String(data.title),client:String(data.client||''),headline:String(data.headline),excerpt:String(data.excerpt||''),image,imageAlt:String(data.imageAlt||''),order,timeline,chronology,servicePhotos,projectIntro:renderBody(String(data.projectIntro||'')),storySections:storySections.map(section=>({label:String(section.label),headline:String(section.headline),html:renderBody(String(section.body))})),html:renderBody(content)};
 }
 
 export function loadCases(dir){

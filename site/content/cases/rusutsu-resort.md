@@ -13,44 +13,51 @@ timeline:
     description: 社内向けコンサルティング
     services:
       - strategy
-    detail: 未定
+    detail: 2024年 プロジェクト立ち上げ
+    serviceDetail: サステナビリティの方向性整理から始め、「水」をリゾートと地域双方にとって重要な自然資本として位置づけました。単発の環境施策ではなく、中長期の水循環プロジェクトとして構想しています。
   - title: チームをつくる
     description: 企業・自治体・研究者・専門家
     services:
       - strategy
     detail: 未定
+    serviceDetail: 研究者、大学、企業、留寿都村などをつなぎ、調査、観測、実証、教育、発信を段階的に進める体制を設計しています。何を目指し、誰と進め、地域の価値へどうつなげるかを整理します。
   - title: 発信の基盤をつくる
     description: 環境サイト
     services:
       - communication
     detail: 未定
+    serviceDetail: 水循環調査、研究、IoTモニタリング、森林での活動を一つのストーリーとして整理しています。環境サイトや記事、写真、映像を通じて、活動の背景と意味が伝わる発信につなげています。
   - title: 地域で考える
     description: 水循環シンポジウム
     services:
-      - field
-      - communication
-    detail: 未定
+      - community
+    detail: 2024年から毎年開催
+    serviceDetail: 研究者、企業、自治体、地域が水循環を考えるシンポジウムを開催。2024年は「水を知る」、2025年は「測った結果を共有する」、2026年は「地域実装へつなげる」という流れで、進捗と次の方向性を共有する場にしています。
   - title: 自然を知る
     description: 地下水・湧水・地質・雨量・森林の調査
     services:
       - field
-    detail: 未定
+    detail: 2024年 現地調査／2025年 水文地質調査
+    serviceDetail: 研究者と山、森林、河川、湧水、井戸を実際に歩き、水がどこから来て、どこへ流れるのかを調べています。調査結果を観測計画につなぎ、自然の力を活かす森林涵養、リーキーダム、カープランクなどの改善施策へ進んでいます。
   - title: 見えるようにする
     description: AquaInsights
     services:
       - field
-    detail: 未定
+    detail: 2025年 IoTモニタリング開始／2026年 観測・データ連携を展開
+    serviceDetail: 観測井戸、水位計、雨量計、LoRaWAN等を導入し、地下水や雨の変化を継続して捉えています。現地調査と観測データをつなぎ、AquaInsightsとの連携を通じて、水循環を理解し改善を判断するための情報にしていきます。
   - title: 地域に広げる
     description: 子ども向け環境イベント・教育
     services:
-      - field
+      - community
     detail: 未定
+    serviceDetail: 地元の子どもたちが森や川に入り、水循環を体験しながら学ぶ活動を実施しています。専門家の知見を、地域や次世代が参加できる体験・学習へと広げています。
   - title: 次へつなぐ
-    description: 修学旅行・企業研修・MEGURU・ブランディング
+    description: 教育旅行・企業研修と継続的なブランディング
     services:
-      - field
+      - community
       - communication
     detail: 未定
+    serviceDetail: 修学旅行や企業研修などの教育プログラムへの展開を見据え、地域の自然を知る機会を広げています。同時に、Web、写真、映像、イベント、記事を組み合わせ、環境活動を企業・地域のブランド価値として伝えています。
 projectIntro: |-
   ルスツリゾートの水循環プロジェクトは、単一の施策から始まったものではありません。
 

@@ -18,7 +18,7 @@
 | --- | --- | --- |
 | HOME | HERO → WHY → PRODUCTS → CASE STUDY → SERVICES → TEAM → INSIGHTS → CONTACT | 清流・水循環図・波形・余白・書体・ボタンを継承。新コピーは意味の区切りで改行 |
 | PRODUCTS | AquaInsights、MEGURU | 既存WORKS一覧・詳細テンプレートを再利用 |
-| SERVICES | STRATEGY、FIELD、COMMUNICATION | 既存の写真とテキストの交互配置。初期は1ページ |
+| SERVICES | 戦略・調査実装・地域共創と教育・ブランディング | 2026年9月8日に指示書の4分類へ更新。一覧と4つの詳細ページ。写真とテキストの交互配置を継承 |
 | CASE STUDY | ルスツの8段階の取り組み | 写真枠・見出し・細い罫線を継承。タイムラインを追加 |
 | ABOUT | 天の環、Mission、代表メッセージ、5名のチーム、会社概要 | 既存の並びと見せ方を継承 |
 | INSIGHTS | お知らせ・ブログ・プレスリリース | 既存のニュース行・検索・カテゴリー切り替えを継承。noteは掲載元として扱い、ブログに分類 |
@@ -73,7 +73,7 @@ noteで記事を公開後、「noteの未掲載記事をブログへ反映して
 ## 実装の参照先
 
 - `site/src/Landing.jsx`：HOMEの構成
-- `site/src/catalog.js`：2製品と3サービスの原稿、製品UI素材の差し替え箇所
+- `site/src/catalog.js`：2製品の原稿、製品UI素材の差し替え箇所。4サービスは `site/src/supportServices.js`
 - `site/src/ContentPages.jsx`：製品・サービス・事例テンプレート
 - `site/src/content-structure.css`：既存デザインを継承する追加スタイル
 - `site/scripts/content.mjs`：記事・事例の読み込みと入力検証

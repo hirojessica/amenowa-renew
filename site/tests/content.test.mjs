@@ -5,6 +5,8 @@ import {mkdtempSync,writeFileSync,unlinkSync,rmdirSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import path from 'node:path';
 import matter from 'gray-matter';
+import {supportServices} from '../src/supportServices.js';
+import {contactTopics,contactTopicFor} from '../src/contactTopics.js';
 const source=(extra='',body='本文')=>`---\ntitle: Test\nslug: test\ndate: '2026-09-06'\ncategory: お知らせ\npublished: true\n${extra}\n---\n${body}`;
 test('drafts and future articles are excluded',()=>{assert.equal(parsePost(source().replace('published: true','published: false'),'test.md','2026-09-06'),null);assert.equal(parsePost(source(),'test.md','2026-09-05'),null);});
 test('published content has safe HTML and base-prefixed media',()=>{const p=parsePost(source('',`## 見出し\n<script>alert(1)</script>\n<a href="javascript:alert(1)">x</a>\n![alt](/uploads/test.png)`),'test.md','2026-09-06');assert.match(p.html,/<h2>見出し/);assert.doesNotMatch(p.html,/<script|javascript:/);assert.match(p.html,/amenowa-renew\/uploads\/test.png/);});
@@ -103,4 +105,29 @@ test('chronology images reject unsafe or non-public locations',()=>{
  }
  const publicImage=chronologyCase();publicImage.chronology.years[0].periods[0].events[0].image='https://example.com/photo.jpg';
  assert.equal(readChronology(publicImage).chronology.years[0].periods[0].events[0].image,'https://example.com/photo.jpg');
+});
+
+test('all four service associations are retained and community is independent from field',()=>{
+ const item=parseCase(caseSource('four','','    services: [strategy, field, community, communication, community]'),'four.md');
+ assert.deepEqual(item.timeline[0].services,['strategy','field','community','communication']);
+ const community=parseCase(caseSource('education','','    services: [community]'),'education.md');
+ assert.equal(community.timeline[0].services.includes('field'),false);
+});
+test('service evidence photos are optional, slot-unique and validate public media and alt text',()=>{
+ const data={title:'Case',headline:'Case',published:true,timeline:[{title:'Step',description:'Detail'}]};
+ const parse=()=>parseCase(matter.stringify('',data),'case.md');
+ assert.deepEqual(parse().servicePhotos,[]);
+ data.servicePhotos=[{slot:'education',image:'/uploads/cases/education.jpg',imageAlt:'自然の中で学ぶ子どもたち',caption:'学びの様子'}];
+ assert.equal(parse().servicePhotos[0].image,'/uploads/cases/education.jpg');
+ data.servicePhotos.push({...data.servicePhotos[0]});assert.throws(parse,/Duplicate service photo/);data.servicePhotos.pop();
+ data.servicePhotos[0].imageAlt='';assert.throws(parse,/alternative text/);
+ data.servicePhotos[0].image='';assert.equal(parse().servicePhotos[0].image,'');
+ data.servicePhotos[0].slot='unknown';assert.throws(parse,/Invalid service photo slot/);
+ data.servicePhotos=[{slot:'field',image:'file:///E:/private.jpg',imageAlt:'photo'}];assert.throws(parse,/Invalid public URL/);
+});
+test('service consultation links select a known topic while privacy and recruit still work',()=>{
+ for(const service of supportServices){const topic=contactTopicFor('?service='+service.slug);assert.equal(topic,service.name+'について');assert.ok(contactTopics.includes(topic));}
+ assert.equal(contactTopicFor('?subject=privacy&service=community'),'個人情報の取り扱いについて');
+ assert.equal(contactTopicFor('?subject=recruit'),'採用について');
+ for(const value of ['?service=unknown','?service=__proto__','?subject=constructor','?service=%3Cscript%3E'])assert.equal(contactTopicFor(value),'事業・サービスについて');
 });

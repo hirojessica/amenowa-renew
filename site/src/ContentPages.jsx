@@ -1,7 +1,7 @@
 import {ArrowUpRight} from '@phosphor-icons/react';
 import {Arrow,Button,Media,PageIntro,ContactCTA} from './App.jsx';
 import {href} from './site.js';
-import {products,supportServices} from './catalog.js';
+import {products} from './catalog.js';
 import {ProductGallery} from './ProductGallery.jsx';
 import {CaseNarrative,CaseChronology} from './CaseChronology.jsx';
 import {AquaInsightsSupport} from './AquaInsightsSupport.jsx';
@@ -32,7 +32,6 @@ export function Product({product:p}){
  </>;
 }
 
-export function Services(){return <><PageIntro label="SERVICES" title="ともに考え、現場で動かす。" description="プロダクトに加えて、戦略づくりから現場の実装、社会への発信まで伴走します。"/><section className="services-index content-width">{supportServices.map((s,i)=><article id={s.slug} className="service-index" key={s.slug}><a className="service-index-image" href={href(`services/${s.slug}/`)} aria-label={`${s.english}の事例・詳しい内容を見る`}><Media name={s.image}/></a><div><span className="eyebrow">0{i+1} / {s.english}</span><h2><a href={href(`services/${s.slug}/`)}>{s.name}</a></h2><p>{s.description}</p><a className="text-link" href={href(`services/${s.slug}/`)}>事例・詳しい内容を見る<Arrow/></a></div></article>)}</section><ContactCTA/></>;}
 
 export function CaseVisual({item,className=''}){return item.image?<img className={`case-photo ${className}`} src={item.image.startsWith('/uploads/')?href(item.image):item.image} alt={item.imageAlt} loading="lazy"/>:<Media className={className} name={`${item.title}の活動写真`}/>;}
 

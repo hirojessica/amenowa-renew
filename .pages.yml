@@ -156,16 +156,49 @@ content:
               multiple: true
               values:
                 - name: strategy
-                  label: STRATEGY / 一緒に考える
+                  label: サステナビリティ戦略・事業設計
                 - name: field
-                  label: FIELD / 現場で動かす
+                  label: 水・自然資本の調査・実装
+                - name: community
+                  label: 地域共創・環境教育
                 - name: communication
-                  label: COMMUNICATION / 社会に伝える
+                  label: サステナブル・ブランディング
             description: 選択したサービスの詳細ページにも、この取り組みが掲載されます。未選択の場合は事例ページだけに掲載します。
           - name: serviceDetail
             label: サービス詳細ページ用の紹介文
             type: text
             description: 背景・課題、具体的な取り組み、確定した成果などを記入できます。未確定の場合は「未定」。改行はそのまま表示します。
+      - name: servicePhotos
+        label: SERVICESのルスツ実績写真（任意）
+        type: object
+        list: true
+        description: ルスツリゾート用の掲載枠です。写真を受領後に登録すると、SERVICES一覧とサービス詳細の両方に反映されます。年表写真とは別の設定です。
+        fields:
+          - name: slot
+            label: 掲載場所（同じ場所は1件まで）
+            type: select
+            required: true
+            options:
+              values:
+                - name: strategy
+                  label: 01 戦略・連携
+                - name: field
+                  label: 02 森林・水路・井戸調査
+                - name: symposium
+                  label: 03 水循環シンポジウム
+                - name: education
+                  label: 03 子ども・フィールド教育
+                - name: branding
+                  label: 04 記録・発信
+          - name: image
+            label: 実績写真
+            type: image
+          - name: imageAlt
+            label: 写真の説明（写真を登録した場合は必須）
+            type: string
+          - name: caption
+            label: 写真のキャプション（任意）
+            type: string
       - name: body
         label: 補足本文（任意）
         type: rich-text

@@ -17,7 +17,7 @@ export const pageMeta = path => {
  const names={'':'水と自然を知る。守り、育てる。未来につなぐ。','products/':'プロダクト','services/':'サービス','case-study/':'導入事例','insights/':'お知らせ','about/':'私たちについて','works/':'事業内容','news/':'お知らせ','recruit/':'採用情報','contact/':'お問い合わせ','contact/complete/':'お問い合わせ完了','privacy/':'個人情報の取り扱い'};
  const descriptions={
   'products/':'水と自然を知るAquaInsightsと、地域の行動につなげるMEGURUをご紹介します。',
-  'services/':'戦略づくり、現場の実装、社会への発信。水と自然の課題にともに向き合う3つのサービス。',
+  'services/':'サステナビリティ戦略・事業設計、水・自然資本の調査・実装、地域共創・環境教育、サステナブル・ブランディング。4つのサービスで構想から実装まで伴走します。',
   'case-study/':'構想から実装、地域の活動へ。amenowaの取り組みをご紹介します。',
   'insights/':'amenowaのお知らせ・ブログ・プレスリリース。水と自然を知り、行動につなげる知見をお届けします。',
   'about/':'株式会社amenowaの企業理念、代表メッセージ、チーム・アドバイザー、会社概要をご紹介します。',
@@ -29,5 +29,5 @@ export const pageMeta = path => {
   'privacy/':'amenowaにおける個人情報の取り扱いについてご案内します。',
   '404/':'ページが見つかりません。URLをご確認ください。'
  };
- return {title:`${product?.name || study?.title || (support&&`${support.english} / ${support.name}`) || service?.name || names[path] || (path==='404/'?'ページが見つかりません':'NEWS')} | amenowa`, description:product?.intro || study?.excerpt || support?.body || service?.intro || descriptions[path] || 'amenowaは、企業や自治体とともに、水や自然の状態を理解し、地域の行動につなげ、その成果を社会へ伝える会社です。'};
+ return {title:`${product?.name || study?.title || support?.name || service?.name || names[path] || (path==='404/'?'ページが見つかりません':'NEWS')} | amenowa`, description:product?.intro || study?.excerpt || support?.description || service?.intro || descriptions[path] || 'amenowaは、企業や自治体とともに、水や自然の状態を理解し、地域の行動につなげ、その成果を社会へ伝える会社です。'};
 };

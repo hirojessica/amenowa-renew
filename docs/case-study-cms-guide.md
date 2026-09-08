@@ -18,26 +18,33 @@ CASE STUDYはPages CMSのコレクションです。現在はルスツリゾー�
 
 「従来の取り組みの流れ・SERVICESへの関連付け」の各項目に以下を追加しています。新しい年表の4分類とは独立した設定です。
 
-- **関連するサービス**：STRATEGY / FIELD / COMMUNICATIONから選びます。複数選択できます。
+- **関連するサービス**：サステナビリティ戦略・事業設計／水・自然資本の調査・実装／地域共創・環境教育／サステナブル・ブランディングから選びます。複数選択できます。
 - **サービス詳細ページ用の紹介文**：背景・課題、具体的な進め方、確定した成果などを入力します。改行を保持する長文入力です。未確定の内容は「未定」にします。
 
 選択したサービスの詳細ページに、事例名・写真・該当する取り組み・紹介文が表示されます。未選択ならCASE STUDYだけに掲載されます。事例を非掲載にすると、SERVICESの関連事例からも外れます。
 
-- [STRATEGY](https://hirojessica.github.io/amenowa-renew/services/strategy/)
-- [FIELD](https://hirojessica.github.io/amenowa-renew/services/field/)
-- [COMMUNICATION](https://hirojessica.github.io/amenowa-renew/services/communication/)
+- [サステナビリティ戦略・事業設計](https://hirojessica.github.io/amenowa-renew/services/strategy/)
+- [水・自然資本の調査・実装](https://hirojessica.github.io/amenowa-renew/services/field/)
+- [地域共創・環境教育](https://hirojessica.github.io/amenowa-renew/services/community/)
+- [サステナブル・ブランディング](https://hirojessica.github.io/amenowa-renew/services/communication/)
 
 これらのページは、既存の写真・書体・余白・細い罫線を継承した共通テンプレートです。ページ内の「相談する」からお問い合わせへ進めます。
+
+## SERVICESにルスツの実績写真を追加する
+
+ルスツ原稿の「SERVICESのルスツ実績写真（任意）」で「掲載場所」「実績写真」「写真の説明」を登録します。場所は「戦略・連携」「森林・水路・井戸調査」「水循環シンポジウム」「子ども・フィールド教育」「記録・発信」の5種類。同じ場所は1件までで、写真を入れた場合は説明が必要です。
+
+一覧と該当するサービス詳細の両方に同じ写真が表示されます。未提供の間はSERVICES用の写真枠を表示します。年表の写真設定とは独立しており、年表は画像のない出来事を引き続きテキストだけで表示します。実績写真にAI画像は使いません。
 
 ## 保存先と確認範囲
 
 - 設定：`.pages.yml`
 - 事例原稿：`site/content/cases/*.md`
-- サービス共通紹介：`site/src/catalog.js`
+- サービス共通紹介・一覧の実績原稿：`site/src/supportServices.js`
 - 事例テンプレート：`site/src/ContentPages.jsx`
 - サービス詳細テンプレート：`site/src/ServiceDetail.jsx`
 
-ルスツの事例ページは、2026年9月7日に提供された本文と2024〜2026年の22項目の年表へ更新しました。年表には後から画像を追加できます。SERVICESに関連付けた従来の8項目は保持しており、そのサービス詳細用の未確定の紹介文は引き続き未定です。実施済みという新たな判断や成果の追加はせず、写真未提供のルスツにAI写真は使っていません。
+ルスツの事例ページは、2026年9月7日に提供された本文と2024〜2026年の22項目の年表へ更新しました。年表には後から画像を追加できます。2026年9月8日、SERVICES指示書の実装にあわせて従来の8項目を4サービスへ再分類し、提供資料で説明できる紹介文・時期を補いました。未提供の具体的な実施時期は未定のままです。年表と事例本文は変更していません。
 
 非掲載の原稿も公開GitHubリポジトリ内では閲覧できるため、非公開情報を原稿に保存しないでください。ビルド失敗時は直前の公開サイトが残ります。GitHub Actionsの該当実行で入力エラーを確認します。
 
