@@ -48,6 +48,6 @@ CASE STUDYはPages CMSのコレクションです。現在はルスツリゾー�
 
 非掲載の原稿も公開GitHubリポジトリ内では閲覧できるため、非公開情報を原稿に保存しないでください。ビルド失敗時は直前の公開サイトが残ります。GitHub Actionsの該当実行で入力エラーを確認します。
 
-CMS設定、原稿の追加・並べ替え・非掲載・ページ生成をコードとビルドで検証しています。利用者のGitHubアカウントでのCMS保存操作は未確認です。
+CMS設定、原稿の追加・並べ替え・非掲載・ページ生成をコードとビルドで検証しています。2026年9月8日、利用者のGitHubアカウントで事例作成・表示順変更・年表への画像選択・削除をCMSから実行し、デモ反映も確認しました。年表では画像あり・なしの両方と画像拡大を確認しています。新規画像ファイルのアップロードは別途未確認です。詳しくは[Pages CMSの実更新確認](pages-cms-verification.md)を参照してください。
 
 公式設定資料：[コレクション](https://pagescms.org/docs/configuration/content/)、[表示順](https://pagescms.org/docs/configuration/content/view/)、[複数選択](https://pagescms.org/docs/configuration/fields/select/)。
