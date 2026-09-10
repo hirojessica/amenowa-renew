@@ -24,7 +24,7 @@ export function ServiceDetail({service}) {
         </div>}
         <ol className="case-timeline service-case-steps">{item.steps.map((step,i)=><li key={i}>
           <span className="timeline-number">{String(i+1).padStart(2,'0')}</span>
-          <div><h4>{step.title}</h4><p>{step.description}</p><p className="service-case-detail">{step.serviceDetail==='未定'?'紹介文：未定':step.serviceDetail}</p><p className="timeline-detail">{step.detail==='未定'?'詳細・実施時期：未定':step.detail}</p></div>
+          <div><h4>{step.title}</h4><p>{step.description}</p><p className="service-case-detail">{step.serviceDetail==='未定'?'紹介文：未定':step.serviceDetail}</p>{step.detail&&step.detail!=='未定'&&<p className="timeline-detail">{step.detail}</p>}</div>
         </li>)}</ol>
       </article>) : <p>事例の掲載準備中です。</p>}
     </section>

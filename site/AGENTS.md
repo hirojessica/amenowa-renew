@@ -2,6 +2,8 @@
 
 ## Approved amenowa direction
 
+- Later on 2026-09-10, user requested hiding all 詳細・実施時期：未定 paragraphs. Render timeline detail only when nonempty and not 未定, in service detail steps and the generic case timeline; preserve confirmed dates and CMS content. Also hide MEGURU's Missionを支える企業 / Sponsored by ○○株式会社 link and its 企業ページの画面を見る caption; retain the surrounding explanation, supplied screens and enlargement. Remove only the specified contact input-page note beginning デモのため、入力内容は送信・保存されません。. Keep the demo's no-transmission behavior, confirmation/completion messages and production activation configuration unchanged; hiding that note does not authorize sending forms or a production cutover.
+
 - Later on 2026-09-10, user also requested temporarily removing 代表メッセージ：未定. Omit that placeholder paragraph from ABOUT's MESSAGE section until confirmed copy is supplied. Preserve its headline, representative signature, portrait and layout. This supersedes the earlier instruction to display an unconfirmed representative message as 未定.
 
 - Later on 2026-09-10, user supplied exec-4f046270-332f-431f-af1c-f84e23ab002a.png for the image beside 4つのサービスが、ひとつのプロジェクトとしてつながる。. Use this supplied collage unchanged as Rusutsu's heroImage at public/uploads/cases/rusutsu-project-collage.png, only in the case detail hero. Keep the existing summer landscape for HOME, the case index and SERVICES overview. Expose the optional hero image and alt text in Pages CMS; an unset hero image falls back to the overview image. This supersedes the earlier shared-image placement for the detail hero. Do not distribute the collage into the individual event/evidence slots or infer additional event facts from it.
