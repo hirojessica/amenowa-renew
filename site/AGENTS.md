@@ -2,6 +2,8 @@
 
 ## Approved amenowa direction
 
+- Later on 2026-09-10, user also requested temporarily removing 代表メッセージ：未定. Omit that placeholder paragraph from ABOUT's MESSAGE section until confirmed copy is supplied. Preserve its headline, representative signature, portrait and layout. This supersedes the earlier instruction to display an unconfirmed representative message as 未定.
+
 - Later on 2026-09-10, user supplied exec-4f046270-332f-431f-af1c-f84e23ab002a.png for the image beside 4つのサービスが、ひとつのプロジェクトとしてつながる。. Use this supplied collage unchanged as Rusutsu's heroImage at public/uploads/cases/rusutsu-project-collage.png, only in the case detail hero. Keep the existing summer landscape for HOME, the case index and SERVICES overview. Expose the optional hero image and alt text in Pages CMS; an unset hero image falls back to the overview image. This supersedes the earlier shared-image placement for the detail hero. Do not distribute the collage into the individual event/evidence slots or infer additional event facts from it.
 
 - Later on 2026-09-10, user requested removing the visible 紹介文：未定 text. For TEAM members 岩永 朝陽, 深本 南 and 平戸慎太郎, leave biography details empty and omit the empty paragraph until confirmed copy is supplied. This supersedes earlier instructions to display the placeholder. Preserve all six photos, names, roles and the other three members' existing affiliations/details.
