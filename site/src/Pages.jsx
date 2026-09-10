@@ -24,7 +24,6 @@ export function Recruit(){return <><PageIntro label="RECRUIT" title={<>水の未
 export function Privacy(){return <>
   <PageIntro label="PRIVACY" title="個人情報の取り扱い"/>
   <section className="article-content prose">
-    {import.meta.env.VITE_CONTACT_MODE!=='live'&&<p className="form-demo-note">デモのフォームでは入力内容を送信・保存しません。</p>}
     <h2>お問い合わせでお預かりする情報</h2>
     <p>株式会社amenowa（以下「当社」）は、お問い合わせの際に、お名前、メールアドレス、会社名・団体名、お問い合わせの種類・内容など、ご入力いただいた情報を取得します。</p>
     <p>お預かりした情報は、お問い合わせへの回答、ご相談への対応、およびこれらに必要な確認・連絡のために利用します。法令で認められる場合を除き、ご本人の同意なく、これらの目的を超えて利用することはありません。</p>
