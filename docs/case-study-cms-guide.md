@@ -2,6 +2,8 @@
 
 CASE STUDYはPages CMSのコレクションです。現在はルスツリゾート1件を公開しています。同じ項目で事例を追加すると、一覧と専用の詳細ページが、現在のルスツと同じテンプレートで生成されます。
 
+2026年9月10日、利用者支給の `Summer-Rusutsu-Image-_1_-1.png`（1920×1440）を、ルスツの「活動写真」に登録しました。元画像を加工せず `/uploads/cases/rusutsu-summer-landscape.png` に配置しています。トップの「構想から、地域の実装へ。」、事例一覧、事例詳細、SERVICESの事例概要が同じ画像を参照します。年表の各出来事とSERVICESの個別実績写真は独立しており、この風景写真では埋めていません。
+
 ## 事例を追加する
 
 1. [Pages CMS](https://app.pagescms.org/)でGitHubにログインし、`hirojessica/amenowa-renew` の `main` を選びます。初回はGitHub Appのリポジトリアクセス設定が必要です。

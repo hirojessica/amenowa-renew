@@ -6,8 +6,8 @@ order: 10
 client: RUSUTSU RESORT
 headline: 4つのサービスが、ひとつのプロジェクトとしてつながる。
 excerpt: 戦略、調査・観測、地域の学び、発信。4つのサービスを組み合わせ、2024年から育ててきた水循環プロジェクトです。
-image: ''
-imageAlt: ''
+image: /uploads/cases/rusutsu-summer-landscape.png
+imageAlt: ルスツリゾートのテラスから望む、夏の山並みと雲海
 timeline:
   - title: 考える
     description: 社内向けコンサルティング
