@@ -8,6 +8,7 @@
 - [新しい構成・バックアップ・noteの掲載方法](docs/content-restructure.md)
 - [CMS・お問い合わせの設定手順](docs/operations.md)
 - [GA4の引き継ぎ・本番切り替え時の確認](docs/analytics.md)
+- [FormSubmit有効化・受信テストの状況](docs/formsubmit-verification.md)
 - [ページ構成・実装メモ](docs/implementation.md)
 - [デザイン・動作の確認記録](site/design-qa.md)
 

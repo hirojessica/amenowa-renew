@@ -30,6 +30,7 @@ const advisors = [
 ];
 
 advisors.push({name:'深本 南',role:'サステナブル・ブランディング プロデューサー',details:['紹介文：未定'],image:'fukamoto-minami.jpg',size:1108,height:1477});
+advisors.push({name:'平戸慎太郎',role:'Legal Counsel',details:['紹介文：未定'],image:'hirato-shintaro.png',size:681,height:847});
 
 export function TeamSection() {
   useEffect(()=>{
@@ -70,7 +71,7 @@ export function TeamIntro() {
     <div>
       <span className="eyebrow">TEAM &amp; ADVISORS</span>
       <h2 id="home-team-heading">専門家とともに、<br className="mobile-only"/>水と自然に向き合う。</h2>
-      <p>水と森林、地質、IT。それぞれの知見を持ち寄ります。</p><span className="home-team-names">岩永 朝陽 ／ 蔵治 光一郎 ／ 髙嶋 洋 ／ 久松 慎一 ／ 深本 南</span>
+      <p>水と森林、地質、IT。それぞれの知見を持ち寄ります。</p><span className="home-team-names">{advisors.map(advisor=>advisor.name).join(' ／ ')}</span>
     </div>
     <a className="text-link team-link" href={href('about/#team')}>チームを知る<ArrowRight size={24} weight="thin" aria-hidden="true"/></a>
   </section>;
