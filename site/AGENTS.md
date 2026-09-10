@@ -2,6 +2,8 @@
 
 ## Approved amenowa direction
 
+- Later on 2026-09-10, user requested removing the visible 紹介文：未定 text. For TEAM members 岩永 朝陽, 深本 南 and 平戸慎太郎, leave biography details empty and omit the empty paragraph until confirmed copy is supplied. This supersedes earlier instructions to display the placeholder. Preserve all six photos, names, roles and the other three members' existing affiliations/details.
+
 - On 2026-09-10, user supplied Summer-Rusutsu-Image-_1_-1.png for the image slot under 構想から、地域の実装へ。. Use the supplied photo unchanged at public/uploads/cases/rusutsu-summer-landscape.png as Rusutsu's CMS case image. This shared image appears in HOME, the case index/detail and the SERVICES case overview. Keep event-specific chronology and service evidence photo slots separate; the landscape is not evidence of those individual activities.
 
 - On 2026-09-10, user supplied thumbnail.png for 平戸慎太郎, role Legal Counsel. Publish the original portrait unchanged as public/images/team/hirato-shintaro.png; retain the current TEAM layout and show 紹介文：未定 until supplied. Keep HOME's member names synchronized with the same six-member data. User also explicitly authorized FormSubmit activation and receipt testing before cutover. Perform controlled tests from the local live-mode environment using info@amenowa.co.jp; keep the public GitHub Pages workflow in demo mode and current production unchanged. A success page alone does not establish email receipt. See ../docs/formsubmit-verification.md for the actual test status and remaining production-domain checks.

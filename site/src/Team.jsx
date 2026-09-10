@@ -4,7 +4,7 @@ import {href} from './site.js';
 import './team.css';
 
 const advisors = [
-  {name:'岩永 朝陽',role:'代表取締役',details:['紹介文：未定'],image:'../representative-asahi.jpg',size:800},
+  {name:'岩永 朝陽',role:'代表取締役',details:[],image:'../representative-asahi.jpg',size:800},
   {
     name: '蔵治 光一郎',
     role: '技術アドバイザー',
@@ -29,8 +29,8 @@ const advisors = [
   },
 ];
 
-advisors.push({name:'深本 南',role:'サステナブル・ブランディング プロデューサー',details:['紹介文：未定'],image:'fukamoto-minami.jpg',size:1108,height:1477});
-advisors.push({name:'平戸慎太郎',role:'Legal Counsel',details:['紹介文：未定'],image:'hirato-shintaro.png',size:681,height:847});
+advisors.push({name:'深本 南',role:'サステナブル・ブランディング プロデューサー',details:[],image:'fukamoto-minami.jpg',size:1108,height:1477});
+advisors.push({name:'平戸慎太郎',role:'Legal Counsel',details:[],image:'hirato-shintaro.png',size:681,height:847});
 
 export function TeamSection() {
   useEffect(()=>{
@@ -59,7 +59,7 @@ export function TeamSection() {
           <h3>{advisor.name}</h3>
           <p className="advisor-role">{advisor.role.split(' ').map((part,i)=><Fragment key={i}>{i?' ':''}<span className={i?'advisor-role-tail':undefined}>{part}</span></Fragment>)}</p>
           {advisor.specialty&&<p className="advisor-specialty">{advisor.specialty}</p>}
-          <p className="advisor-details">{advisor.details.map(line=><span key={line}>{line}</span>)}</p>
+          {advisor.details.length>0&&<p className="advisor-details">{advisor.details.map(line=><span key={line}>{line}</span>)}</p>}
         </div>
       </article>)}
     </div>
