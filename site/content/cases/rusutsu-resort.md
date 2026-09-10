@@ -8,6 +8,8 @@ headline: 4つのサービスが、ひとつのプロジェクトとしてつな
 excerpt: 戦略、調査・観測、地域の学び、発信。4つのサービスを組み合わせ、2024年から育ててきた水循環プロジェクトです。
 image: /uploads/cases/rusutsu-summer-landscape.png
 imageAlt: ルスツリゾートのテラスから望む、夏の山並みと雲海
+heroImage: /uploads/cases/rusutsu-project-collage.png
+heroImageAlt: ルスツの取り組みを紹介する、打ち合わせ・森林作業・環境教育・シンポジウムの4場面を組み合わせた画像
 timeline:
   - title: 考える
     description: 社内向けコンサルティング

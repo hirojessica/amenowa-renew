@@ -128,9 +128,18 @@ content:
       - name: image
         label: 活動写真
         type: image
+        description: トップ・事例一覧・SERVICESの事例概要に表示します。詳細ページ冒頭の画像が未設定の場合は、そこにも表示します。
       - name: imageAlt
         label: 写真の説明
         type: string
+      - name: heroImage
+        label: 詳細ページ冒頭の画像（任意）
+        type: image
+        description: 詳細ページのメイン見出し横だけに表示します。未設定なら活動写真を使います。
+      - name: heroImageAlt
+        label: 詳細ページ冒頭の画像の説明
+        type: string
+        description: 詳細ページ冒頭の画像を設定した場合は、画像の内容を説明してください。
       - name: timeline
         label: 従来の取り組みの流れ・SERVICESへの関連付け
         type: object

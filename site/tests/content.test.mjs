@@ -52,6 +52,18 @@ test('case studies exclude drafts, validate routes and stages, and sanitize the 
 });
 
 const caseSource=(slug,extra='',stageExtra='')=>`---\ntitle: ${slug}\nslug: ${slug}\nheadline: Example case\npublished: true\n${extra}\ntimeline:\n  - title: 調べる\n    description: 観測\n${stageExtra}\n---\n補足本文`;
+test('optional case hero images preserve the overview image and require safe media with alt text',()=>{
+ const overview='image: /uploads/landscape.png\nimageAlt: 風景';
+ const legacy=parseCase(caseSource('legacy',overview),'legacy.md');
+ assert.equal(legacy.heroImage,'');assert.equal(legacy.image,'/uploads/landscape.png');
+ const hero='heroImage: /uploads/collage.png\nheroImageAlt: 活動の4場面';
+ const item=parseCase(caseSource('custom',overview+'\n'+hero),'custom.md');
+ assert.equal(item.image,legacy.image);assert.equal(item.imageAlt,'風景');
+ assert.equal(item.heroImage,'/uploads/collage.png');assert.equal(item.heroImageAlt,'活動の4場面');
+ assert.throws(()=>parseCase(caseSource('missing-alt',overview+'\nheroImage: /uploads/collage.png'),'missing-alt.md'),/requires alternative text/);
+ assert.throws(()=>parseCase(caseSource('unsafe',hero.replace('/uploads/collage.png','file:///E:/private.png')),'unsafe.md'),/Invalid public URL/);
+ assert.equal(parseCase(caseSource('empty',overview+'\nheroImage: ""\nheroImageAlt: ""'),'empty.md').heroImage,'');
+});
 test('CMS additions can be ordered after Rusutsu and unpublished cases stay out',t=>{
  const dir=mkdtempSync(path.join(tmpdir(),'amenowa-cases-'));
  const files=['rusutsu-resort.md','added-case.md','draft.md'];

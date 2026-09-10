@@ -69,6 +69,9 @@ export function parseCase(source,filename){
  const legacyTimeline=data.timeline??[];
  if(!Array.isArray(legacyTimeline)||(!legacyTimeline.length&&!chronology)||legacyTimeline.some(step=>!step?.title||!step.description))throw new Error(`Case study requires a timeline: ${filename}`);
  const image=caseImage(data.image,filename);
+ const heroImage=caseImage(data.heroImage,filename);
+ const heroImageAlt=String(data.heroImageAlt||'');
+ if(heroImage&&!heroImageAlt.trim())throw new Error(`Case hero image requires alternative text: ${filename}`);
  const order=data.order??100;
  if(typeof order!=='number'||!Number.isSafeInteger(order)||order<0)throw new Error(`Case study order must be a non-negative integer: ${filename}`);
  const timeline=legacyTimeline.map(step=>{
@@ -86,7 +89,7 @@ export function parseCase(source,filename){
   return {slot:photo.slot,image,imageAlt:String(photo.imageAlt||''),caption:String(photo.caption||'')};
  });
  if(!Array.isArray(storySections)||storySections.some(section=>!section?.label||!section.headline||!section.body))throw new Error(`Invalid case story section: ${filename}`);
- return {slug,title:String(data.title),client:String(data.client||''),headline:String(data.headline),excerpt:String(data.excerpt||''),image,imageAlt:String(data.imageAlt||''),order,timeline,chronology,servicePhotos,projectIntro:renderBody(String(data.projectIntro||'')),storySections:storySections.map(section=>({label:String(section.label),headline:String(section.headline),html:renderBody(String(section.body))})),html:renderBody(content)};
+ return {slug,title:String(data.title),client:String(data.client||''),headline:String(data.headline),excerpt:String(data.excerpt||''),image,imageAlt:String(data.imageAlt||''),heroImage,heroImageAlt,order,timeline,chronology,servicePhotos,projectIntro:renderBody(String(data.projectIntro||'')),storySections:storySections.map(section=>({label:String(section.label),headline:String(section.headline),html:renderBody(String(section.body))})),html:renderBody(content)};
 }
 
 export function loadCases(dir){

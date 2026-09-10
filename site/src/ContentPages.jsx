@@ -33,13 +33,17 @@ export function Product({product:p}){
 }
 
 
-export function CaseVisual({item,className=''}){return item.image?<img className={`case-photo ${className}`} src={item.image.startsWith('/uploads/')?href(item.image):item.image} alt={item.imageAlt} loading="lazy"/>:<Media className={className} name={`${item.title}の活動写真`}/>;}
+export function CaseVisual({item,className='',hero=false}){
+  const image=hero&&item.heroImage?item.heroImage:item.image;
+  const imageAlt=hero&&item.heroImage?item.heroImageAlt:item.imageAlt;
+  return image?<img className={`case-photo ${className}`} src={image.startsWith('/uploads/')?href(image):image} alt={imageAlt} loading="lazy"/>:<Media className={className} name={`${item.title}の活動写真`}/>;
+}
 
 export function CaseStudies(){return <><PageIntro label="CASE STUDY" title="構想から、地域の実装へ。" description="企業や地域とともに、水と自然の課題に向き合う取り組み。"/><section className="services-index content-width">{cases.length?cases.map(item=><article className="service-index" key={item.slug}><a className="service-index-image" href={href(`case-study/${item.slug}/`)} aria-label={`${item.title}の取り組みを見る`}><CaseVisual item={item}/></a><div><span className="eyebrow">{item.client}</span><h2>{item.title}</h2><p>{item.excerpt}</p><a className="text-link" href={href(`case-study/${item.slug}/`)}>取り組みを見る<Arrow/></a></div></article>):<p>事例の掲載準備中です。</p>}</section><ContactCTA/></>;}
 
 export function CaseStudy({item}){return <>
   <div className="breadcrumb content-width"><a href={href()}>HOME</a><span>/</span><a href={href('case-study/')}>CASE STUDY</a><span>/</span><span>{item.title}</span></div>
-  <section className={`service-hero${item.chronology?' case-study-detailed':''}`}><div><span className="eyebrow">CASE STUDY / {item.client}</span><p className="service-name">{item.title}</p><h1>{item.headline}</h1><p>{item.excerpt}</p><a className="text-link" href="#journey">{item.chronology?'年表を見る':'取り組みの流れを見る'}<Arrow/></a></div><CaseVisual item={item}/></section>
+  <section className={`service-hero${item.chronology?' case-study-detailed':''}`}><div><span className="eyebrow">CASE STUDY / {item.client}</span><p className="service-name">{item.title}</p><h1>{item.headline}</h1><p>{item.excerpt}</p><a className="text-link" href="#journey">{item.chronology?'年表を見る':'取り組みの流れを見る'}<Arrow/></a></div><CaseVisual item={item} hero/></section>
   <CaseNarrative item={item}/>
   {item.chronology?<CaseChronology chronology={item.chronology} slug={item.slug}/>:<section id="journey" className="case-journey content-width"><span className="eyebrow">OUR JOURNEY</span><h2>取り組みの流れ</h2><ol className="case-timeline">{item.timeline.map((step,i)=><li key={i}><span className="timeline-number">{String(i+1).padStart(2,'0')}</span><div><h3>{step.title}</h3><p>{step.description}</p><p className="timeline-detail">{step.detail==='未定'?'詳細・実施時期：未定':step.detail}</p></div></li>)}</ol></section>}
   {item.html&&<section className="article-content prose" dangerouslySetInnerHTML={{__html:item.html}}/>}

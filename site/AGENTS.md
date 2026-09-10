@@ -2,6 +2,8 @@
 
 ## Approved amenowa direction
 
+- Later on 2026-09-10, user supplied exec-4f046270-332f-431f-af1c-f84e23ab002a.png for the image beside 4つのサービスが、ひとつのプロジェクトとしてつながる。. Use this supplied collage unchanged as Rusutsu's heroImage at public/uploads/cases/rusutsu-project-collage.png, only in the case detail hero. Keep the existing summer landscape for HOME, the case index and SERVICES overview. Expose the optional hero image and alt text in Pages CMS; an unset hero image falls back to the overview image. This supersedes the earlier shared-image placement for the detail hero. Do not distribute the collage into the individual event/evidence slots or infer additional event facts from it.
+
 - Later on 2026-09-10, user requested removing the visible 紹介文：未定 text. For TEAM members 岩永 朝陽, 深本 南 and 平戸慎太郎, leave biography details empty and omit the empty paragraph until confirmed copy is supplied. This supersedes earlier instructions to display the placeholder. Preserve all six photos, names, roles and the other three members' existing affiliations/details.
 
 - On 2026-09-10, user supplied Summer-Rusutsu-Image-_1_-1.png for the image slot under 構想から、地域の実装へ。. Use the supplied photo unchanged at public/uploads/cases/rusutsu-summer-landscape.png as Rusutsu's CMS case image. This shared image appears in HOME, the case index/detail and the SERVICES case overview. Keep event-specific chronology and service evidence photo slots separate; the landscape is not evidence of those individual activities.
